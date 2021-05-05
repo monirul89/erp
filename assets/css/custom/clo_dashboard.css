@@ -1,0 +1,250 @@
+.page_background_absolute{
+    background:#fff;
+    overflow: hidden;
+    padding: 0px 0;
+    margin-top: 20px;
+}
+.tabelHeadofSaleOrder{
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.tabelHeadofSaleOrder .form-group{
+    overflow: hidden;
+    float: right;
+}
+
+.page_background_absolute table{
+    padding:10px !important;
+}
+.page_background_absolute table thead tr th{
+    background: #e2f8ff;
+    font-size: 11px !important;
+    padding: 20px 5px !important;
+}
+.page_background_absolute table tbody tr td{
+    font-size: 11px !important;
+    padding:10px 5px !important;
+}
+.current_page_title{
+    text-align: left;
+}
+#cloinformation_page input{
+    box-shadow: none;
+}
+
+.bootstrap-select{
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 4px;
+    padding: 1px;
+}
+.dropdown-toggle:focus{
+    outline: 0px !important;
+}
+
+#btn_saleOrder_filter{
+    background: #59CBE8;
+    border-radius: 50px;
+    color: #fff;
+    border: none;
+    padding: 8px 22px;
+    margin-top: 13px;float: right;
+}
+#btn_saleOrder_filter:focus{
+    outline: none;
+}
+#btn_addTicket{
+    background: #fff;
+    border-radius: 50px;
+    color: #59CBE8;
+    padding: 8px 22px;
+    margin-top: 15px;
+    border: 1px solid #59CBE8;
+    display: block;
+    width: 114px;
+    float: left;
+}
+#btn_TicketManager{
+    background: #fff;
+    border-radius: 50px;
+    color: #59CBE8;
+    padding: 8px 22px;
+    margin-top: 15px;
+    border: 1px solid #59CBE8;
+    display: block;
+    width: 173px;
+    float: left;
+    margin-right: 20px;
+}
+#btn_TicketManager:focus{
+    outline: none;
+}
+#btn_addTicket:focus{
+    outline: none;
+}
+#btn_TicketManager:hover{
+    background: #59CBE8;
+    color:#fff;
+}
+#goToCloDashboard{
+    background: #fff;
+    border-radius: 50px;
+    color: #59CBE8;
+    padding: 8px 22px;
+    margin-top: 15px;
+    border: 1px solid #59CBE8;
+    display: block;
+    width: 173px;
+    float: left;
+    margin-right: 20px;
+}
+#goToCloDashboard:focus{
+    outline: none;
+}
+#btn_addTicket:focus{
+    outline: none;
+}
+#goToCloDashboard:hover{
+    background: #59CBE8;
+    color:#fff;
+}
+#btn_addTicket:hover{
+    background: #59CBE8;
+    color:#fff;
+}
+
+.filed_bottom_margin{
+    margin-bottom: 10px;
+}
+.solved_checkbox{
+    height:34px
+}
+
+.btn_ticket_save{
+  float: right;
+  margin-right: 15px;
+  background: #59cbe8;
+  border: none;
+  color: #fff;
+  padding: 7px 20px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-size: 14px;
+}
+.btn_ticket_save:focus{
+outline: none;
+}
+.form-group label {
+  padding: 0px 15px;
+  margin-top: 8px;
+}
+.form-control{
+  border-radius: 0px;
+}
+.filed_bottom_margin input{
+box-shadow: none;
+}
+.filed_bottom_margin select{
+box-shadow: none;
+}
+.filed_bottom_margin textarea{
+box-shadow: none;
+}
+.field_required{
+color:rgb(252, 30, 30);
+}
+
+#remarks{
+    position: relative;
+    overflow: hidden;
+}
+#update_remarks_content{
+    position: absolute;
+    right: 105px;
+    margin-top: 30px;
+    background:#59CBE8;
+    color:#fff;
+    border:none;
+    border-radius: 5px;
+    padding:3px 7px;
+
+}
+#update_remarks_content:focus{
+    border:none;
+}
+
+.fm-checkbox{
+    margin:0px !important;
+}
+.fm-checkbox label{
+    float:left !important;
+    text-align: right;
+    width:113px;
+    margin-bottom: 1px !important;
+}
+.checkbox_align{
+    float:right !important;
+}
+
+.icheckbox_square-green {
+    background-position: 0 0;
+    height: 22px !important;
+    width: 22px !important;
+    margin-left: 8px !important;
+}
+#remark_content_td{
+    position: relative;
+    
+}
+#remarkUpdatebutton {
+    position: absolute;
+    right: 12px;
+    top: 69px;
+    background: #59cbe8;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    padding: 4px 7px;
+}
+
+#saleOrderDetailsbtn{
+    border: 1px solid #59cbe8;
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px 8px;
+    color: #59cbe8;
+    margin-right:5px;
+}
+
+.tabelHeadofticketManagement{
+    background: #fff;
+    overflow: hidden;
+    padding:20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.tabelHeadofSalesOrder{
+    background: #fff;
+    overflow: hidden;
+    padding:20px;
+
+}
+
+.nav_click_button_for_ticket{
+    float:right;
+}
+.nav_click_button_for_ticket li{
+    float:left;
+}
+
+
+
+
+
+
+
+
+
+

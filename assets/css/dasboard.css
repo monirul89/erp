@@ -1,0 +1,187 @@
+.wb-traffic-inner {
+    padding: 0;
+}
+
+.website-traffic-ctn {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.website-traffic-ctn a {
+    display: block;
+    padding: 20px;
+    background-color: #00a58d;
+    min-height: 138px;
+}
+
+.website-traffic-ctn a:hover {
+    background-color: #0dc3a9;
+    box-shadow: 0px 1px 1px #cdcdcd;
+}
+
+.website-traffic-ctn a p {
+    color: #ffffff;
+    padding-top: 10px;
+}
+
+.website-traffic-ctn .fa {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 67px;
+    font-weight: 600;
+}
+
+.website-traffic-ctn .notika-icon {
+    color: #ffffff;
+    font-size: 67px;
+    font-weight: 600;
+}
+
+
+.mr-15 {
+    margin: 15px 0;
+}
+
+@media (max-width: 1200px) and (min-width: 1169px) {
+    .dk-res-mg-t-30 {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 320px) {
+    .dk-res-mg-t-30 {
+        margin-top: 0px;
+    }
+}
+
+
+/* check box */
+
+.btn span.glyphicon {
+    opacity: 0;
+}
+
+.btn.active span.glyphicon {
+    opacity: 1;
+}
+
+.employee-form-check {
+    padding: 2px 5px !important;
+    margin-left: 5px !important;
+    background-color: #d4d4d4;
+}
+
+
+/* Leave */
+.compensatory-leave {
+    padding: 20px 15px;
+}
+.compensatory-leave h2{
+    font-size: 20px;
+    color: #333;
+}
+
+/* Mobile Menu */
+
+.mobile-menu-area{
+    display:none;
+    background: #3297b1;
+}
+.Barcode-area {
+    line-height: 30px;
+    margin: 20px 0;
+}
+
+@media(max-width: 1200px) {
+    .salePosTbl.table-condensed>tbody>tr>td, 
+    .salePosTbl.table-condensed>tbody>tr>th, 
+    .salePosTbl.table-condensed>tfoot>tr>td, 
+    .salePosTbl.table-condensed>tfoot>tr>th, 
+    .salePosTbl.table-condensed>thead>tr>td, 
+    .salePosTbl.table-condensed>thead>tr>th {
+        font-size: 12px;
+    }
+}
+@media(max-width: 991px) {
+    .mobile-menu-area{
+        display:block;
+        background: #3297b1;
+    }
+    .mobile-menu-area .mean-container {
+        margin: 0 30px;
+    }
+    .mobile-menu-area .mean-container .mean-bar::after {
+        left: 13px;
+    }
+    .mobile-menu-area .mean-container .mean-nav {
+        background: none;
+    }
+    .mobile-menu-area .mean-container .mean-nav ul li {
+        background: none;
+    }
+    .mobile-menu-area .mean-container .mean-nav ul li a,
+    .mobile-menu-area .mean-container .mean-nav ul li a.mean-expand,
+    .mobile-menu-area .mean-container .mean-nav ul li li a {
+        background: none;
+        color: #ffffff;
+    }
+    .mobile-menu-area .mean-container .mean-nav ul li a.mean-expand:hover,
+    .mobile-menu-area .mean-container .mean-nav ul li a:hover,
+    .mobile-menu-area .mean-container .mean-nav ul li a.mean-expand:hover {
+        background: none;
+        color: #ffffff;
+    }
+    .mobile-menu-area .mean-container .mean-nav ul li a {
+        padding: 10px 15px;
+        width: calc( 100% - 30px );
+    }
+    .mobile-menu-area .mean-container .mean-nav ul li a.mean-expand {
+        width: calc(100% - 24px);
+        text-align: right;
+    }
+    .table.table-striped>tbody>tr>td, 
+        .table.table-striped>tbody>tr>th, 
+        .table.table-striped>tfoot>tr>td, 
+        .table.table-striped>tfoot>tr>th, 
+        .table.table-striped>thead>tr>td, 
+        .table.table-striped>thead>tr>th {
+        font-size: 12px;
+    }
+    .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+        font-size: 12px;
+    }
+}
+.requisition-button {
+    text-align: right;
+}
+@media screen and (max-width: 767px) {
+    .btn {
+        font-size: 10px !important;
+    }
+    .requisition-copy{
+        margin-top: 10px;
+    }
+    .requisition-button {
+        padding-top: 15px;
+    }
+}
+@media screen and (max-width: 570px) {
+    .requisition-copy{
+        width: 100%;
+    }
+    .requisition-button {
+        width: 100%;
+    }
+}
+.login-content .nk-int-st {
+    margin-bottom: 0;
+}
+.login-content .nk-int-st [type="number"], 
+.login-content .nk-int-st [type="password"]{
+    padding: 0 5px !important;
+
+}
+.login-content .nk-form, .error-page-wrap{
+    background:#ffffff;
+}

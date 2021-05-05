@@ -1,0 +1,314 @@
+.empolyee-profile-area {
+    background-color: #F6F8FA;
+}
+
+.empolyee-profile-area .profile-top {
+    padding: 30px 0 60px 0;
+    /* background-image: url(img/profile_header_bg.jpg); */
+    background-color: #3BC4F0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+section.profile-view {
+    margin-top: -83px;
+    clear: both;
+    overflow: hidden;
+    position: relative;
+}
+
+.empolyee-profile-area .profile-left {
+    text-align: center;
+    position: relative;
+    height: 240px;
+    padding: 0 20px;
+}
+
+.empolyee-profile-area .profile-left img {
+    border-radius: 50%;
+    width: 150px;
+    margin-top: 24px;
+    position: relative;
+}
+
+.empolyee-profile-area .profile-right p {
+    padding: 0;
+    margin: 0;
+    line-height: 24px;
+    color: #ffffff;
+}
+
+.empolyee-profile-area .social-icon {
+    position: relative;
+    padding-top: 12px;
+}
+
+.empolyee-profile-area .social-icon ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.empolyee-profile-area .social-icon ul li {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+}
+
+.empolyee-profile-area .social-icon ul li a i {
+    font-size: 35px;
+    margin-right: 10px;
+}
+
+a:focus,
+a:hover {
+    color: #23527c;
+    text-decoration: none;
+}
+/* Employee table tab */
+
+.profile-view .nav-tabs>li>a {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.profile-view .nav>li>a:focus,
+.profile-view .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #D4D4D4;
+    color: #333;
+}
+
+.profile-view .nav-tabs>li.active>a,
+.profile-view .nav-tabs>li.active>a:focus,
+.profile-view .nav-tabs>li.active>a:hover,
+#generalInfo,
+#officeInfo,
+#employeeLeave,
+#employeePerformance,
+#employeeDocuments {
+    background-color: #D4D4D4;
+    color: #333333;
+}
+
+#generalInfo,
+#officeInfo,
+#nomineeInfo,
+#employeeLeave,
+#employeePerformance,
+#employeeDocuments {
+    padding: 20px;
+}
+
+.panel-heading {
+    padding: 0;
+    background-color: #eeeeee2b;
+}
+
+.panel-heading:hover {
+    background-color: #eeeeee2b;
+}
+
+.panel-title a {
+    padding: 12px 6px;
+    display: block;
+}
+
+.panel-title a i {
+    float: right;
+}
+
+.profile-view .form-control {
+    border: 0px solid #ccc;
+}
+
+.profile-view .form-control label {
+    font-weight: 500;
+    width: 65%;
+}
+
+.profile-view .form-control label:first-child {
+    font-weight: 700;
+    width: 30%;
+    vertical-align: top;
+    position: relative;
+    padding-right: 5px;
+}
+
+.profile-view .form-control label:first-child span {
+    position: absolute;
+    right: 2px;
+    top: 0px;
+}
+
+.profile-view .panel-body .form-control {
+    height: auto !important;
+}
+
+a.default1 {
+    background: url(img/arrow-up.png) no-repeat 99% 50%;
+}
+
+a.default1.collapsed {
+    background: url(img/arrow-down.png) no-repeat 99% 50%;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.profile-right {
+    float: left;
+}
+
+.modal-title {
+    text-align: center;
+    margin-right: 15px;
+}
+
+.modal-header .close {
+    margin-top: -25px;
+}
+
+.profile-form-button {
+    text-align: right;
+}
+
+.displayBlock {
+    display: inline-block;
+}
+
+.displayNone {
+    display: none;
+}
+/* model pop up */
+
+.empolyee-profile-area .modal-dialog {
+    width: 650px;
+}
+
+.empolyee-profile-area .tab-content label input[type="text"],
+.empolyee-profile-area .tab-content label input[type="date"],
+.empolyee-profile-area .tab-content label input[type="email"],
+.empolyee-profile-area .tab-content label input[type="number"],
+.empolyee-profile-area .tab-content label select,
+.empolyee-profile-area .tab-content label textarea {
+    width: 100%;
+    padding: 2px 10px;
+    border: 1px solid #ededed;
+}
+
+.empolyee-profile-area .modal-dialog input[type="checkbox"],
+.empolyee-profile-area .modal-dialog input[type="radio"] {
+    width: 25px;
+}
+
+.empolyee-profile-area .modal-dialog .btn span.fa-check-circle {
+    opacity: 0;
+}
+
+.empolyee-profile-area .modal-dialog .btn.active span.fa-check-circle {
+    opacity: 1;
+}
+/* end model pop up */
+
+.profile-view .redio-button label:first-child span {
+    position: relative;
+    right: 10px;
+    top: -7px;
+}
+
+.profile-view .redio-button label.btn {
+    width: 30px;
+    height: 30px;
+}
+
+.profile-view .redio-button label span {
+    width: 30px;
+    height: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+    section.profile-view {
+        margin-top: -39px;
+    }
+    .empolyee-profile-area .profile-left {
+        height: 155px;
+    }
+    .empolyee-profile-area .profile-left img {
+        margin-top: 0;
+    }
+    .profile-right {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    .empolyee-profile-area .profile-left img {
+        position: relative;
+        right: 0;
+    }
+    .profile-view .nav-tabs>li>a {
+        font-size: 12px;
+    }
+    .profile-view .nav>li>a {
+        padding: 10px 5px;
+    }
+    .profile-view .nav.nav-tabs {
+        min-width: 510px;
+    }
+}
+
+.jobDisplayNone {
+    display: none;
+}
+
+.active-edit .displayNone {
+    display: inline-block !important;
+}
+
+.active-edit .displayBlock {
+    display: none !important;
+}
+/* for date picker  */
+/* 
+input[type=date] {
+    position: relative;
+    height: 30px;
+    color: white;
+    line-height: 20px;
+}
+
+input[type=date]:before {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    content: attr(data-date);
+    display: inline-block;
+    color: black;
+}
+
+input[type=date]::-webkit-datetime-edit,
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-clear-button {
+    display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: black;
+    opacity: 1;
+} */
+
+.modal-header .close {
+    margin-top: -30px;
+}
+.modal-body button {
+    margin-top: 10px;
+    float: right;
+}

@@ -1,0 +1,72 @@
+/*div {
+color:red !important;
+
+} */
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+div.invoice {
+    padding-top: 40px;
+}
+
+div .color {
+    opacity: 0.5;
+}
+
+section div table thead tr th.pad {
+    padding-left: 5rem !important;
+}
+
+div .space {
+    letter-spacing: 1px;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact !important;
+    }
+}
+
+div .footer {
+    position: relative;
+    left: 0px;
+    bottom: 50px;
+    width: 100%;
+    /* color: rgb(228, 122, 122); */
+    text-align: left;
+}
+
+.table thead th {
+    border-bottom: 0px solid #ffffff !important;
+}
+
+.table td,
+.table th {
+    border-top: 0px solid #ffffff !important;
+}
+
+.table td {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-right: 6px !important;
+}
+table, th, td {
+    border: 1px solid black;
+  }
+  #product_code{
+
+    width:200px;
+  }
+  #factory_order_print #product_image { width:220px !important;}
+  #factory_order_print #size { width:40px !important;}
+  #factory_order_print #color{ width:40px !important;}
+  #factory_order_print #quantity {width:13px !important;}
+  #factory_order_print thead {background-color: gray;}
+
+  .trams_conditions{
+    position: relative;
+    bottom: 0;
+    left: 0;
+}

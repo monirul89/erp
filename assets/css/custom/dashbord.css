@@ -1,0 +1,419 @@
+.makemecenter{
+    text-align: center;
+}
+
+/* user profile nav */
+.header_logo {
+    position: relative;
+}
+.logo-area {
+    padding: 10px 0px !important;
+    position: relative;
+    top: 0px;
+}
+.logo-area img {
+    max-width: 80px !important;
+}
+.user_profile{
+    cursor: pointer;
+    margin-right: 15px;
+    padding: 15px 0 !important;
+}
+.user_profile_nav{
+    display: none;
+    position: absolute;
+    list-style: none;
+    background-color: #59cbe8;
+    z-index: 999;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    top: 100%;
+    right: 0;
+    box-shadow: 0px 0px 3px #ddd;
+}
+.user_profile_nav li{
+    border-bottom: 1px solid #dddddd6b;
+    text-align: left;
+}
+.user_profile_nav li:hover a{
+    background-color: rgba(80, 182, 208, .5);
+}
+.user_profile_nav li a{
+    margin: 0;
+    display: block;
+    font-size: 15px !important;
+    padding: 10px 15px 10px 40px;
+    background-color: #59cbe8;
+    color: #ffffff;
+}
+.user_profile_nav li a i{
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+.icon_thumb {
+    width: 30px;
+    float: left;
+    padding: 0;
+    margin-right: 5px;
+    position: absolute;
+    left: -35px;
+    height: 30px;
+}
+.icon_thumb img{
+    width: 30px;
+    height: 30px;
+}
+
+
+
+
+/* .nav>li>a:focus, .nav>li>a:hover {
+    color: #555;
+    background-color: #fff !important;
+} */
+
+.analysis_summary {
+    background-color: white;    overflow: hidden;
+}
+.subtitle{
+    background-color: white;    overflow: hidden;
+}
+
+
+
+.analysis_area .subtitle{
+    padding-bottom: 20px;
+}
+.analysis_area .subtitle h2{
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+}
+
+.analysis_summary {
+    padding: 0 15px 15px;
+    margin-bottom: 19px;
+}
+
+.data-table-list {
+    padding: 15px 15px !important;
+}
+.analysis_filter .search_box{
+    margin-bottom: 15px;
+    height: 34px;
+}
+.summary,
+.search_analysis {
+    clear: both;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.search_box input {
+    width: calc(50% - 15px);
+    padding: 7px 10px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.search_box .max-amount {
+    float: right;
+}
+.search_box input:active,
+.search_box input:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.search_box input.text-full{
+    width: 100%;
+}
+.btn-filter-sky {
+    background-color: #59CBE8;
+    color: white !important;
+    border-radius: 25px !important;
+}
+.btn-filter-white {
+    background-color: #ffffff;
+    color: #59CBE8 !important;
+    border-radius: 25px !important;
+    border: 1px solid #59CBE8 !important;
+}
+
+.summary_box {
+    padding: 15px;
+    height: 400px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: .5px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.number_of_sales_title {
+    text-align: center;
+    line-height: 50px;
+    font-size: 22px;
+    font-family: inherit;
+    margin-bottom: 30px;
+}
+.group_row {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+.row_1 {
+    line-height: 35px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+.row_1 span {
+    display: block;
+    width: calc(100% - 180px);
+    float: right;
+    text-align: right;
+    padding-right: 25px;
+
+}
+.summary_sales{
+    
+}
+.row_1 span.char{
+    position: absolute;
+    padding-right: 0px;
+    width: 25px;
+    top: 0;
+    right: 0;
+}
+.subtitle span {
+    margin-right: 5px;
+    top: -3px;
+    position: relative;
+}
+.data-table-list h4 i,
+.top_sale_items_title i,
+.data-table-list .cmp-int-hd h1 i,
+.analysis_subtitle h2 i,
+.analysis_area i {
+    color: #00CFFF;
+    margin-right: 10px !important;
+}
+
+.Chart_box .highcharts-color-0 rect,
+.Chart_box .highcharts-series.highcharts-series-0 rect {
+    color: #00CFFF;
+    fill: #00CFFF;
+}
+
+.Chart_box .highcharts-color-2 rect,
+.Chart_box .highcharts-series.highcharts-series-2 rect {
+    color: #C25583;
+    fill: #C25583;
+}
+.highcharts-series-2.highcharts-legend-item rect,
+.highcharts-series-0.highcharts-legend-item rect{
+    width: 12px !important;
+}
+.Chart_box .highcharts-series-2 rect,
+.Chart_box .highcharts-series-0 rect{
+    width: 25px;
+}
+text.highcharts-credits {
+    display: none !important;
+}
+.ticket_list_page_filter {
+    padding-bottom: 15px;
+}
+.dataTables_wrapper .dataTables_filter input[type='search']{
+    width: 100% !important;
+}
+
+.resignation-form {
+    margin-top: 30px;
+    width: 80%;
+    margin: 0 auto;
+}
+.resignation-area {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding:50px 30px;
+    clear: both;
+    overflow: hidden;
+}
+.resignation-form textarea,
+.resignation-form input {
+    width: 40%;
+    border: 1px solid #ddd;
+    padding: 9px 10px;
+    outline: none;
+}
+.resignation-form label {
+    width: 25% !important;
+    text-align: right;
+    padding: 0 15px;
+    line-height: 38px;
+    font-size: 16px;
+    vertical-align: top;
+}
+.resignation-form textarea {
+    width: calc(75% - 4px) !important;
+    float: right;
+    outline: none;
+    height: 200px;
+}
+.resignation-form textarea:focus,
+.resignation-form textarea:active{
+    outline: none;
+}
+.group-text {
+    clear: both;
+    overflow: hidden;
+}
+.resignation-form input[type=file] {
+    display: inline-block;
+}
+.resignation-form .form-group {
+    margin-bottom: 30px;
+}
+.resignation-info .basic-tb-hd {
+    margin-bottom: 20px !important;
+}
+.resignation-info .text-para {
+    display: block;
+    width: 220px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.leaves-application .form-group {
+    height: 60px;
+}
+.leaves-application .form-group.group-text {
+    height: auto;
+}
+/* #total_days{
+    width: calc(100% - 80px); 
+    float: right;
+} */
+.leaves-application .form-group label {
+    line-height: 30px;
+    margin-top: 10px;
+}
+input[type=file] { 
+    outline: none !important;
+}
+.leaves-application {
+    padding: 15px;
+    background-color: #ffffff;
+}
+.leaves-application-summary{
+    padding: 15px 10px;
+    background-color: #ffffff;
+}
+.leave-sub-title.sub-title {
+    margin: 10px 0 15px;
+}
+.leave_apply {
+    padding-left: 0;
+}
+.application-summary{
+    padding-left: 0;
+    padding-right: 0;
+}
+.summary-none {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/* .summary-hide{
+    display: block;
+} */
+@media screen and (max-width: 1350px) {
+    .table.leave-summary tr th, 
+    .table.leave-summary tr td {
+        font-size: 10px !important;
+    }
+}
+@media screen and (max-width: 1199px) {
+    .dataTables_wrapper .dataTables_filter input[type='search'] {
+        width: calc(100% - 10px)!important;
+        padding: 0px 0px 0px 20px;
+    }
+    .table.leave-summary tr th, 
+    .table.leave-summary tr td {
+        font-size: 12px !important;
+    }
+    .application-summary {
+        padding-left: 15px;
+        margin-top: 20px;
+    }
+    .leave_apply {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .application-summary{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .resignation-form label,
+    .resignation-form textarea,
+    .resignation-form input {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .resignation-form .form-group {
+        margin-bottom: 30px !important;
+    }
+    .resignation-area {
+        padding: 50px 15px;
+    }
+    .resignation-form textarea {
+        height: 150px;
+    }
+    .leaves-application .form-group {
+        margin-bottom: 15px !important;
+    }
+}
+@media screen and (max-width: 767px) {
+    .resignation-form label {
+        width: 100% !important;
+        text-align: left;
+    }
+    .resignation-form textarea, 
+    .resignation-form input {
+        width: 100% !important;
+    }
+    .resignation-area {
+        padding: 30px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .summary-none {
+        position: relative;
+        top: 10px;
+        right: -15px;
+    }
+}

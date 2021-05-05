@@ -1,0 +1,121 @@
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #05ccff !important;
+}
+.form-example-wrap{
+    margin-bottom:20px !important;
+}
+
+
+@media screen and (max-width:400px){
+    #ResponsiveLayout{
+        width:50%;
+    }
+    .mr-15 {
+        margin: 0px 0 !important;
+    }
+    .website-traffic-ctn .fa {
+        font-size: 50px !important;
+    }
+    .website-traffic-ctn .notika-icon {
+        font-size: 47px !important;
+    }
+}
+
+
+@media screen and (max-width:500px){
+    #ResponsiveLayout{
+        width:50%;
+    }
+    .mr-15 {
+        margin: 0px 0 !important;
+    }
+    .website-traffic-ctn .fa {
+        font-size: 50px !important;
+    }
+    .website-traffic-ctn .notika-icon {
+        font-size: 47px !important;
+    }
+}
+
+@media screen and (max-width:600px){
+    #ResponsiveLayout{
+        width:50%;
+    }
+    .mr-15 {
+        margin: 0px 0 !important;
+    }
+    .website-traffic-ctn .fa {
+        font-size: 50px !important;
+    }
+    .website-traffic-ctn .notika-icon {
+        font-size: 47px !important;
+    }
+}
+
+@media screen and (min-width:601px)  and (max-width:767px){
+    #ResponsiveLayout{
+        width:33%;
+    }
+    .mr-15 {
+        margin: 0px 0 !important;
+    }
+    .website-traffic-ctn .fa {
+        font-size: 50px !important;
+    }
+    .website-traffic-ctn .notika-icon {
+        font-size: 47px !important;
+    }
+}
+
+@media screen and (min-width:768px)  and (max-width:905px){
+    #ResponsiveLayout{
+        width:33%;
+        margin-top:30px !important;
+    }
+    .mr-15 {
+        margin: 0px 0 !important;
+    }
+    .website-traffic-ctn .fa {
+        font-size: 50px !important;
+    }
+    .website-traffic-ctn .notika-icon {
+        font-size: 47px !important;
+    }
+}
+
+@media screen and (min-width:905px)  and (max-width:1000px){
+    #ResponsiveLayout{
+        width:33%;
+        margin-top:30px !important;
+    }
+    .mr-15 {
+        margin: 0px 0 !important;
+    }
+    .website-traffic-ctn .fa {
+        font-size: 50px !important;
+    }
+    .website-traffic-ctn .notika-icon {
+        font-size: 47px !important;
+    }
+}
+@media screen and (min-width:1001px)  and (max-width:1200px){
+    #ResponsiveLayout{
+        width:25%;
+        margin-top:30px !important;
+    }
+    .mr-15 {
+        margin: 0px 0 !important;
+    }
+    .website-traffic-ctn .fa {
+        font-size: 55px !important;
+    }
+    .website-traffic-ctn .notika-icon {
+        font-size: 52px !important;
+    }
+    .ticket_list_page_filter {
+        min-height: 240px !important;
+        width: 100%;
+    }
+}

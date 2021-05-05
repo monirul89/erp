@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <style>
+        .empolyee-profile-area {
+            background-color: #F6F8FA;
+        }
+        
+        .empolyee-profile-area .profile-top {
+            padding: 30px 0 60px 0;
+            /* background-image: url(img/profile_header_bg.jpg); */
+            background-color: #3BC4F0;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+        }
+        
+        section.profile-view {
+            margin-top: -83px;
+            clear: both;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .empolyee-profile-area .profile-left {
+            text-align: center;
+            position: relative;
+            height: 240px;
+            padding: 0 20px;
+        }
+        
+        .empolyee-profile-area .profile-left img {
+            border-radius: 50%;
+            width: 150px;
+            margin-top: 24px;
+            position: relative;
+        }
+        
+        .empolyee-profile-area .profile-right p {
+            padding: 0;
+            margin: 0;
+            line-height: 24px;
+            color: #ffffff;
+        }
+        
+        .empolyee-profile-area .social-icon {
+            position: relative;
+            padding-top: 12px;
+        }
+        
+        .empolyee-profile-area .social-icon ul {
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+        }
+        
+        .empolyee-profile-area .social-icon ul li {
+            padding: 0px;
+            margin: 0px;
+            display: inline-block;
+        }
+        
+        .empolyee-profile-area .social-icon ul li a i {
+            font-size: 35px;
+            margin-right: 10px;
+        }
+        
+        a:focus,
+        a:hover {
+            color: #23527c;
+            text-decoration: none;
+        }
+        /* Employee table tab */
+        
+        .profile-view .nav-tabs>li>a {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .profile-view .nav>li>a:focus,
+        .profile-view .nav>li>a:hover {
+            text-decoration: none;
+            background-color: #D4D4D4;
+            color: #333;
+        }
+        
+        .profile-view .nav-tabs>li.active>a,
+        .profile-view .nav-tabs>li.active>a:focus,
+        .profile-view .nav-tabs>li.active>a:hover,
+        #generalInfo,
+        #officeInfo,
+        #employeeLeave,
+        #employeePerformance,
+        #employeeDocuments {
+            background-color: #D4D4D4;
+            color: #333333;
+        }
+        
+        #generalInfo,
+        #officeInfo,
+        #nomineeInfo,
+        #employeeLeave,
+        #employeePerformance,
+        #employeeDocuments {
+            padding: 20px;
+        }
+        
+        .panel-heading {
+            padding: 0;
+            background-color: #eeeeee2b;
+        }
+        
+        .panel-heading:hover {
+            background-color: #eeeeee2b;
+        }
+        
+        .panel-title a {
+            padding: 12px 6px;
+            display: block;
+        }
+        
+        .panel-title a i {
+            float: right;
+        }
+        
+        .profile-view .form-control {
+            border: 0px solid #ccc;
+        }
+        
+        .profile-view .form-control label {
+            font-weight: 500;
+            width: 65%;
+        }
+        
+        .profile-view .form-control label:first-child {
+            font-weight: 700;
+            width: 30%;
+            vertical-align: top;
+            position: relative;
+            padding-right: 5px;
+        }
+        
+        .profile-view .form-control label:first-child span {
+            position: absolute;
+            right: 2px;
+            top: 0px;
+        }
+        
+        .profile-view .panel-body .form-control {
+            height: auto !important;
+        }
+        
+        a.default1 {
+            background: url(img/arrow-up.png) no-repeat 99% 50%;
+        }
+        
+        a.default1.collapsed {
+            background: url(img/arrow-down.png) no-repeat 99% 50%;
+        }
+        
+        .float-left {
+            float: left;
+        }
+        
+        .float-right {
+            float: right;
+        }
+        
+        .profile-right {
+            float: left;
+        }
+        
+        .modal-title {
+            text-align: center;
+            margin-right: 15px;
+        }
+        
+        .modal-header .close {
+            margin-top: -25px;
+        }
+        
+        .profile-form-button {
+            text-align: right;
+        }
+        
+        .displayBlock {
+            display: inline-block;
+        }
+        
+        .displayNone {
+            display: none;
+        }
+        /* model pop up */
+        
+        .empolyee-profile-area .modal-dialog {
+            width: 650px;
+        }
+        
+        .empolyee-profile-area .tab-content label input[type="text"],
+        .empolyee-profile-area .tab-content label input[type="date"],
+        .empolyee-profile-area .tab-content label input[type="email"],
+        .empolyee-profile-area .tab-content label input[type="number"],
+        .empolyee-profile-area .tab-content label select,
+        .empolyee-profile-area .tab-content label textarea {
+            width: 100%;
+            padding: 2px 10px;
+            border: 1px solid #ededed;
+        }
+        
+        .empolyee-profile-area .modal-dialog input[type="checkbox"],
+        .empolyee-profile-area .modal-dialog input[type="radio"] {
+            width: 25px;
+        }
+        
+        .empolyee-profile-area .modal-dialog .btn span.fa-check-circle {
+            opacity: 0;
+        }
+        
+        .empolyee-profile-area .modal-dialog .btn.active span.fa-check-circle {
+            opacity: 1;
+        }
+        /* end model pop up */
+        
+        .profile-view .redio-button label:first-child span {
+            position: relative;
+            right: 10px;
+            top: -7px;
+        }
+        
+        .profile-view .redio-button label.btn {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .profile-view .redio-button label span {
+            width: 30px;
+            height: 30px;
+        }
+        
+        @media only screen and (max-width: 767px) {
+            section.profile-view {
+                margin-top: -39px;
+            }
+            .empolyee-profile-area .profile-left {
+                height: 155px;
+            }
+            .empolyee-profile-area .profile-left img {
+                margin-top: 0;
+            }
+            .profile-right {
+                text-align: center;
+                padding-bottom: 15px;
+            }
+            .empolyee-profile-area .profile-left img {
+                position: relative;
+                right: 0;
+            }
+            .profile-view .nav-tabs>li>a {
+                font-size: 12px;
+            }
+            .profile-view .nav>li>a {
+                padding: 10px 5px;
+            }
+            .profile-view .nav.nav-tabs {
+                min-width: 510px;
+            }
+        }
+    </style>
+    <style>
+        .jobDisplayNone {
+            display: none;
+        }
+        
+        .active-edit .displayNone {
+            display: inline-block !important;
+        }
+        
+        .active-edit .displayBlock {
+            display: none !important;
+        }
+        /* for date picker  */
+        
+        input[type=date] {
+            position: relative;
+            height: 30px;
+            color: white;
+            line-height: 20px;
+        }
+        
+        input[type=date]:before {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            content: attr(data-date);
+            display: inline-block;
+            color: black;
+        }
+        
+        input[type=date]::-webkit-datetime-edit,
+        input[type=date]::-webkit-inner-spin-button,
+        input[type=date]::-webkit-clear-button {
+            display: none;
+        }
+        
+        input[type=date]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            top: 3px;
+            right: 0;
+            color: black;
+            opacity: 1;
+        }
+        /* for date picker  */
+    </style>
+    <script>
+        $(document).ready(function() {
+
+            $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+                $('#employeeProfileTab a[href="' + activeTab + '"]').tab('show');
+            }
+
+            // Edit and update view
+
+            // function editProfile() {
+            // $('.active-edit .displayBlock, .jobDisplayBlock').css({
+            //     'display': 'none'
+            // });
+            // $('.active-edit .displayNone, .jobDisplayNone').css({
+            //     'display': 'inline-block'
+            // });
+            // }
+            // 
+            // function updateProfile() {
+            //     $('.displayNone, .jobDisplayNone').css({
+            //         'display': 'none'
+            //     });
+            //     $('.displayBlock, .jobDisplayBlock').css({
+            //         'display': 'inline-block'
+            //     });
+            // }
+            /*
+                        function addClass(elements, myClass) {
+
+                            // if there are no elements, we're done
+                            if (!elements) {
+                                return;
+                            }
+
+                            // if we have a selector, get the chosen elements
+                            if (typeof(elements) === 'string') {
+                                elements = document.querySelectorAll(elements);
+                            }
+
+                            // if we have a single DOM element, make it an array to simplify behavior
+                            else if (elements.tagName) {
+                                elements = [elements];
+                            }
+
+                            // add class to all chosen elements
+                            for (var i = 0; i < elements.length; i++) {
+
+                                // if class is not already found
+                                if ((' ' + elements[i].className + ' ').indexOf(' ' + myClass + ' ') < 0) {
+
+                                    // add class
+                                    elements[i].className += ' ' + myClass;
+                                }
+                            }
+                        }
+            */
+
+            // var edit = document.getElementById('');
+
+            document.getElementById("PersonalEdit").onclick = function() {
+                // editProfile()
+                $("#collapsePersonal, #collapseEducation").addClass("active-edit");
+                // addClass('#collapsePersonal', 'active-edit');
+            };
+            document.getElementById("PersonalUpdate").onclick = function() {
+                // updateProfile()
+                $("#collapsePersonal").removeClass("active-edit");
+                // $("#collapsePersonal").addClass("active");
+            };
+
+            document.getElementById("jobExperienceEdit").onclick = function() {
+                $("#collapseExperience").addClass("active-edit");
+            };
+            document.getElementById("jobExperienceUpdate").onclick = function() {
+                $("#collapseExperience").removeClass("active-edit");
+            };
+
+            document.getElementById("educationEdit").onclick = function() {
+                $("#collapseEducation").addClass("active-edit");
+            };
+            document.getElementById("educationUpdate").onclick = function() {
+                $("#collapseEducation").removeClass("active-edit");
+            };
+
+            document.getElementById("dependentsEdit").onclick = function() {
+                $("#collapseDependents").addClass("active-edit");
+            };
+            document.getElementById("dependentsUpdate").onclick = function() {
+                $("#collapseDependents").removeClass("active-edit");
+            };
+
+            document.getElementById("officeInfoEdit").onclick = function() {
+                $("#collapseWorkInfo").addClass("active-edit");
+            };
+            document.getElementById("officeInfoUpdate").onclick = function() {
+                $("#collapseWorkInfo").removeClass("active-edit");
+            };
+            document.getElementById("PayrollInfoEdit").onclick = function() {
+                $("#collapsePayroll").addClass("active-edit");
+            };
+            document.getElementById("PayrollInfoUpdate").onclick = function() {
+                $("#collapsePayroll").removeClass("active-edit");
+            };
+            document.getElementById("deductionInfoEdit").onclick = function() {
+                $("#collapseDeduction").addClass("active-edit");
+            };
+            document.getElementById("deductionInfoUpdate").onclick = function() {
+                $("#collapseDeduction").removeClass("active-edit");
+            };
+
+            document.getElementById("documentsEdit").onclick = function() {
+                $("#collapsePersonalDocument").addClass("active-edit");
+            };
+            document.getElementById("documentsUpdate").onclick = function() {
+                $("#collapsePersonalDocument").removeClass("active-edit");
+            };
+
+            document.getElementById("financialEdit").onclick = function() {
+                $("#collapseFinancialDocument").addClass("active-edit");
+            };
+            document.getElementById("financialUpdate").onclick = function() {
+                $("#collapseFinancialDocument").removeClass("active-edit");
+            };
+
+            document.getElementById("certificateEdit").onclick = function() {
+                $("#collapseCertificateTranscript").addClass("active-edit");
+            };
+            document.getElementById("certificateUpdate").onclick = function() {
+                $("#collapseCertificateTranscript").removeClass("active-edit");
+            };
+            document.getElementById("experienceEdit").onclick = function() {
+                $("#collapseExperienceDocuments").addClass("active-edit");
+            };
+            document.getElementById("experienceUpdate").onclick = function() {
+                $("#collapseExperienceDocuments").removeClass("active-edit");
+            };
+            document.getElementById("trainingEdit").onclick = function() {
+                $("#collapseTrainingDocuments").addClass("active-edit");
+            };
+            document.getElementById("trainingUpdate").onclick = function() {
+                $("#collapseTrainingDocuments").removeClass("active-edit");
+            };
+
+            document.getElementById("performanceEdit2020").onclick = function() {
+                $("#collapsePerformance2020").addClass("active-edit");
+            };
+            document.getElementById("performanceUpdate2020").onclick = function() {
+                $("#collapsePerformance2020").removeClass("active-edit");
+            };
+
+            document.getElementById("performanceEdit2019").onclick = function() {
+                $("#collapsePerformance2019").addClass("active-edit");
+            };
+            document.getElementById("performanceUpdate2019").onclick = function() {
+                $("#collapsePerformance2019").removeClass("active-edit");
+            };
+            document.getElementById("leaveInfoEdit").onclick = function() {
+                $("#collapseLeave").addClass("active-edit");
+            };
+            document.getElementById("leaveInfoUpdate").onclick = function() {
+                $("#collapseLeave").removeClass("active-edit");
+            };
+
+
+            // Reapeat Nominee
+            var repeateDependents = document.getElementById('repeateDependents');
+
+            function employeeDependents(mClass, count) {
+
+                //extra html you want to store.
+                return '<div class="' + mClass + '">' +
+                    '<div class="form-control">' +
+                    '<label>' + count + '. Name' + '<span class="float-right">' + ':' + '</span></label>' +
+                    '<label class="displayBlock">' + 'Mr. Amin' + '</label>' +
+                    '<label class="displayNone">' + '<input type="text" name="dependentsName' + count + '" value="Mr. Amin">' +
+                    '</label>' +
+                    '</div>' +
+                    '<div class="form-control">' +
+                    '<label>' + 'Relationship' + '<span class="float-right">' + ':' + '</span></label>' +
+                    '<label class="displayBlock">' + 'Mother' +
+                    '</label>' +
+                    '<label class="displayNone">' + '<input type="text" name="dependentsName' + count + '" value="Mr. Amin">' +
+                    '</div>' +
+                    '<div class="form-control">' +
+                    '<label>' + 'Date of Birth' + '<span class="float-right">' + ':' + '</span></label>' +
+                    '<label class="displayBlock">' + '15-03-2020' +
+                    '</label>' +
+                    '<label class="displayNone">' + '<input type="date" data-date="" data-date-format="DD MMMM YYYY" name="dependentsName' + count + '" value="2000-05-15">' +
+                    '</div>' +
+                    '</div>';
+            }
+
+            var count = 2;
+            dependentsButton = document.getElementById("dependentsAdd").onclick = function() {
+                count += 1;
+                console.log("Click me: " + count);
+                repeateDependents.innerHTML += employeeDependents('card-body col-sm-6', count);
+            };
+
+            $("input[type='date']").on("change", function() {
+                this.setAttribute(
+                    "data-date",
+                    moment(this.value, "YYYY-MM-DD")
+                    .format(this.getAttribute("data-date-format"))
+                )
+            }).trigger("change")
+
+
+            // ------
+            // $("#nominee1").removeClass("displayNone");
+            // $("#nominee1").addClass("displayBlock");
+
+            $('#selectNominee').change(function() {
+                var val = $("#selectNominee option:selected").val();
+                if (val === '1') {
+                    $("#nominee1").css({
+                        'display': 'block'
+                    });
+                    $("#nominee2").css({
+                        'display': 'none'
+                    });
+                } else if (val == '2') {
+                    $("#nominee1").css({
+                        'display': 'none'
+                    });
+                    $("#nominee2").css({
+                        'display': 'block'
+                    });
+                } else {
+                    $("#nominee1").css({
+                        'display': 'none'
+                    });
+                    $("#nominee2").css({
+                        'display': 'none'
+                    });
+                }
+            });
+            // $('#selectNominee').change(function() {
+            //     var val = $("#selectNominee option:selected");
+            //     $("#nomineeInformation").addClass("active-edit");
+            // });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="empolyee-profile-area">
+        <section class="profile-top">
+            <div class="container">
+                <div class="profile-left float-left">
+                    <img src="img/logo.jpg" alt="Employee profile">
+                </div>
+                <div class="profile-right">
+                    <h3 style="font-size: 30px;color:#ffffff;">Ms. Asmina</h3>
+                    <P style="font-size: 18px;">Manager</P>
+                    <p class="short-describe" style="font-size: 17px;">Isho Limited</p>
+                    <p class="short-describe">Phone No:1234567891</p>
+                    <p class="short-describe">Email:example@gmail.com</p>
+                </div>
+            </div>
+        </section>
+        <section class="profile-view">
+            <div class="container">
+
+                <ul class="nav nav-tabs" id="employeeProfileTab">
+                    <li class="active"><a data-toggle="tab" href="#generalInfo">General Info</a></li>
+                    <li><a data-toggle="tab" href="#officeInfo">Office Info</a></li>
+                    <li><a data-toggle="tab" href="#employeeDocuments"> Documents </a></li>
+                    <li><a data-toggle="tab" href="#employeePerformance"> Performance </a></li>
+                    <li><a data-toggle="tab" href="#employeeLeave"> Leave </a></li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <!-- Start of Employee GeneralInfo Information Tab -->
+                    <div id="generalInfo" class="tab-pane fade in active">
+
+                        <!-- Start of Employee GeneralInfo Personal Information Tab -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapsePersonal" aria-expanded="true" class="default1">
+                                        Personal Informaiton</a>
+                                </h4>
+                            </div>
+                            <div id="collapsePersonal" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> Name<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Ms. Asmina </label>
+                                            <label class="displayNone"><input type="text" name="employeeName" value="Ms. Asmina"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Name in Bangla<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> মিসেস অসমিনা</label>
+                                            <label class="displayNone"><input type="text" name="employeeNameBangla" value="মিসেস অসমিনা"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Email<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Email@gmail.com</label>
+                                            <label class="displayNone"><input type="text" name="employeeEmail" value="Email@gmail.com"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Phone <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 0123456789</label>
+                                            <label class="displayNone"><input type="text" name="employeePhone" value="0123456789"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Date Of Birth<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 12-12-2000 </label>
+                                            <label class="displayNone"><input type="date" data-date="" data-date-format="DD MMMM YYYY" name="employeeBirth" value="2020-03-19"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Age<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 20 </label>
+                                            <label class="displayNone"><input type="text" name="employeeAge" value="20"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Blood Group<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> B+ </label>
+                                            <label class="displayNone"><input type="text" name="employeeGroup" value="B+"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Gender<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Male </label>
+                                            <label class="displayNone">
+                                                <input type="radio" name="employeeGender" value="Male">Male
+                                                <input type="radio" name="employeeGender" value="Female">Female
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Nationality<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Bangladeshi </label>
+                                            <label class="displayNone"><input type="text" name="employeeNationality" value="Bangladeshi"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Religion<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Islam </label>
+                                            <label class="displayNone">
+                                                <!-- <input type="text" name="employeeReligion" value="Islam"> -->
+                                                <select id="" name="employeeReligion">
+                                                    <option value="">Select Religion</option>
+                                                    <option value="Islam">Islam</option>
+                                                    <option value="Christianity">Christianity</option>
+                                                    <option value="Hinduism">Hinduism</option>
+                                                    <option value="Buddhism">Buddhism</option>
+                                                    <option value="Folk Religion">Folk Religion</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Passport<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 9876543215 </label>
+                                            <label class="displayNone"><input type="text" name="employeePassport" value="9876543215"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Driving License <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 9876543215 </label>
+                                            <label class="displayNone"><input type="text" name="employeeDriving" value="9876543215"> </label>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> Father's or Husband's Name<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> ABCD </label>
+                                            <label class="displayNone"><input type="text" name="employeeAge" value="ABCD"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Mother's Name<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Abc </label>
+                                            <label class="displayNone"><input type="text" name="employeesMotherName" value="Abc"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> National ID Number<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 1234567889</label>
+                                            <label class="displayNone"><input type="text" name="employeeNid" value="1234567889"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Marital Status<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Married</label>
+                                            <label class="displayNone">
+                                                <input type="radio" name="employeeMarital" value="Married">Married
+                                                <input type="radio" name="employeeMarital" value="Unmarried">Unmarried
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Spouse Name<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> ABCD</label>
+                                            <label class="displayNone"><input type="text" name="employeeSpouseName" value="ABCD"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Number Of Children<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 3 </label>
+                                            <label class="displayNone"><input type="text" name="employeeNoChildren" value="3"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Present Address<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> House 06, Road 02, Block J,  Pragati Sarani, Baridhara, Dhaka-1212 </label>
+                                            <label class="displayNone"><input type="text" name="employeePresentAddress" value="House 06, Road 02, Block J,  Pragati Sarani, Baridhara, Dhaka-1212"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Permanent Address <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> House 06, Road 02, Block J,  Pragati Sarani, Baridhara, Dhaka-1212 </label>
+                                            <label class="displayNone"><input type="text" name="employeePermanentAddress" value="House 06, Road 02, Block J,  Pragati Sarani, Baridhara, Dhaka-1212 "> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Comment <span class="float-right"> : </span></label>
+                                            <label class="displayBlock" style="text-align: justify;"> The Secondary School Certificate ,Bangladesh. </label>
+                                            <label class="displayNone">
+                                                <textarea type="text" style="height: 70px;" name="employeeComment">The Secondary School Certificate ,Bangladesh.
+                                                </textarea> </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label><button class="btn btn-success displayBlock" id="PersonalEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="PersonalUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- End of Employee GeneralInfo Personal Information view ----->
+                        <!-- Start of Employee Experience Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseExperience" aria-expanded="true" class="default1">
+                                        Experience of Work</a>
+                                </h4>
+                            </div>
+                            <div id="collapseExperience" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+
+                                        <div class="form-control">
+                                            <label>1. Company Name<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Bangladesh Institute </label>
+                                            <label class="displayNone"><input type="text" name="companyName" value="Bangladesh Institute"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Job Title <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Sr. Manager </label>
+                                            <label class="displayNone"><input type="text" name="jobTitle" value="Manager"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Job Description <span class="float-right"> : </span></label>
+                                            <label class="displayBlock" style="text-align: justify;"> The Secondary School Certificate, also called SSC or Matriculation examination, is a public examination in India, 
+                                                Bangladesh by educational boards as completion exam of secondary education in these countries. </label>
+                                            <label class="displayNone">
+                                                    <textarea type="text" style="height: 70px;" name="jobDescription">The Secondary School Certificate ,Bangladesh.
+                                                    </textarea> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> From Date <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 15-03-2000 </label>
+                                            <label class="displayNone"><input type="date" data-date="" data-date-format="DD MMMM YYYY" name="fromDate" value="2000-03-15"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> To Date <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 15-03-2000 </label>
+                                            <label class="displayNone"><input type="date" data-date="" data-date-format="DD MMMM YYYY" name="toDate" value="2000-03-15"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Experience <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  3.0 <span> Years </span></label>
+                                            <label class="displayNone"><input type="text" name="jobExperience" value="3.0"></label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+
+                                        <div class="form-control">
+                                            <label>2. Company Name<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Bangladesh Institute </label>
+                                            <label class="displayNone"><input type="text" name="companyName2" value="Bangladesh Institute"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Job Title <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Manager </label>
+                                            <label class="displayNone"><input type="text" name="jobTitle2" value="Manager"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Job Description <span class="float-right"> : </span></label>
+                                            <label class="displayBlock" style="text-align: justify;"> The Secondary School Certificate, also called SSC or Matriculation examination, is a public examination in India, 
+                                                Bangladesh by educational boards as completion exam of secondary education in these countries. </label>
+                                            <label class="displayNone">
+                                                    <textarea type="text" style="height: 70px;" name="jobDescription2">The Secondary School Certificate ,Bangladesh.
+                                                    </textarea> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> From Date <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 15-03-2000 </label>
+                                            <label class="displayNone"><input type="date" data-date="" data-date-format="DD MMMM YYYY" name="fromDate2" value="2000-03-15"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> To Date <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 15-03-2000 </label>
+                                            <label class="displayNone"><input type="date" data-date="" data-date-format="DD MMMM YYYY" name="toDate2" value="2000-03-15"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Experience <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  3.0 <span> Years </span></label>
+                                            <label class="displayNone"><input type="text" name="jobExperience2" value="3.0"></label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="form-control">
+                                            <label> Total Experience <span class="float-right"> : </span></label>
+                                            <label>  6.5 <span> Years </span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success jobDisplayBlock" id="jobExperienceEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="jobExperienceUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- End of Employee Experience Information view ----->
+                        <!-- Start of Employee Education Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseEducation" aria-expanded="true" class="default1">
+                                        Education </a>
+                                </h4>
+                            </div>
+                            <div id="collapseEducation" class="panel-collapse collapse in" aria-expanded="true">
+
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label>1. Institute Name <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Bangladesh Institute </label>
+                                            <label class="displayNone"><input type="text" name="instituteName" value="Bangladesh Institute"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Examination Name <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> secondary school certificate </label>
+                                            <label class="displayNone"><input type="text" name="examinationName" value="secondary school certificate"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Board/University <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Dhaka </label>
+                                            <label class="displayNone"><input type="text" name="boardName" value="Dhaka"> </label>
+                                        </div>
+                                    </div>
+                                    <div class="card-body col-sm-6">
+                                        <div class="form-control">
+                                            <label> Passing Year <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 2000 </label>
+                                            <label class="displayNone"><input type="text" name="PassingYear" value="2000"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Marks/CGPA/GPA <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 5.00 </label>
+                                            <label class="displayNone"><input type="text" name="marks" value="5.00"> </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label>2. Institute Name <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Bangladesh Institute </label>
+                                            <label class="displayNone"><input type="text" name="instituteName-2" value="Bangladesh Institute"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Examination Name <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Higher Secondary School Certificate </label>
+                                            <label class="displayNone"><input type="text" name="examinationName-2" value="Higher Secondary School Certificate"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Board/University <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Dhaka </label>
+                                            <label class="displayNone"><input type="text" name="boardName-2" value="Dhaka"> </label>
+                                        </div>
+                                    </div>
+                                    <div class="card-body col-sm-6">
+                                        <div class="form-control">
+                                            <label> Passing Year  <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 2000 </label>
+                                            <label class="displayNone"><input type="text" name="PassingYear-2" value="2000"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Marks/CGPA/GPA <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 5.00 </label>
+                                            <label class="displayNone"><input type="text" name="marks-2" value="5.00"> </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="educationEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="educationUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- End of Employee Education Information view ----->
+                        <!-- Start of Employee Dependents Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseDependents" aria-expanded="true" class="default1">
+                                        Dependents </a>
+                                </h4>
+                            </div>
+                            <div id="collapseDependents" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body" id="repeateDependents">
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label>1. Name <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Ms. Amina </label>
+                                            <label class="displayNone"><input type="text" name="dependentsName" value="Ms. Amina"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Relationship <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Mother </label>
+                                            <label class="displayNone"><input type="text" name="dependentsRelationship" value="Mother"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Date of Birth <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 15-03-2020 </label>
+                                            <label class="displayNone"><input data-date="" data-date-format="DD MMMM YYYY" type="date" name="dependentsBirth" value="2020-03-03"> </label>
+                                        </div>
+                                    </div>
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label>2. Name <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Mr. Amin </label>
+                                            <label class="displayNone"><input type="text" name="dependentsName2" value="Mr. Amin"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Relationship <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Brother </label>
+                                            <label class="displayNone"><input type="text" name="dependentsRelationship2" value="Brother"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Date of Birth <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 15-03-2020 </label>
+                                            <label class="displayNone"><input type="date" data-date="" data-date-format="DD MMMM YYYY" name="dependentsBirth2" value="2020-03-03"> </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="dependentsAdd">Add</button></label>
+                                            <label class="displayBlock"><button class="btn btn-success" id="dependentsEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="dependentsUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+                                        <div class="form-control">
+                                            <label> Nominee Name <span class="float-right"> : </span></label>
+                                            <!-- <label class="displayBlock">Ms. Amina</label> -->
+                                            <label class="displayBlock">
+                                                <select style="width: 100%;" name="selectNominee" id="selectNominee">
+                                                    <option value="" selected>Select Nominee</option>
+                                                    <option value="1">Ms. Amina</option>
+                                                    <option value="2">Mr. Amin</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="card-body col-sm-6">
+                                    </div>
+                                </div>
+
+                                <div id="nominee1" style="display: none" class="panel-body">
+                                    <h3>1. Nominee Information</h3>
+                                    <div class="card-body col-sm-12">
+                                        <div class="col-sm-6">
+
+                                            <div class="form-control">
+                                                <label> Nominees Name<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> Ms. Asmina </label>
+                                                <label class="displayNone"><input type="text" name="nomineesName" value="Ms. Asmina"> </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label> Nominees Name in Bangla<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> Ms. Asmina </label>
+                                                <label class="displayNone"><input type="text" name="nomineesNameBangla" value="Nominees Name in Bangla"> </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label> Nominees NID No<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> 987654321 </label>
+                                                <label class="displayNone"><input type="text" name="nomineesNid" value="987654321"> </label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-6">
+
+                                            <div class="form-control">
+                                                <label> Nominees Email<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> nominee@gmail.com </label>
+                                                <label class="displayNone"><input type="text" name="nomineesEmail" value="nominee@gmail.com"> </label>
+                                            </div>
+
+                                            <div class="form-control">
+                                                <label> Nominees Phone No<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> 0123456789</label>
+                                                <label class="displayNone"><input type="text" name="nomineesPhone" value="0123456789"> </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="nominee2" style="display: none" class="panel-body">
+                                    <h3>2. Nominee Information</h3>
+                                    <div class="card-body col-sm-12">
+                                        <div class="col-sm-6">
+
+                                            <div class="form-control">
+                                                <label> Nominees Name<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> Mr. Amin </label>
+                                                <label class="displayNone"><input type="text" name="nomineesName2" value="Mr. Amin"> </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label> Nominees Name in Bangla<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> Ms. Asmina </label>
+                                                <label class="displayNone"><input type="text" name="nomineesNameBangla2" value="Nominees Name in Bangla"> </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label> Nominees NID No<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> 321654321 </label>
+                                                <label class="displayNone"><input type="text" name="nomineesNid2" value="987654321"> </label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-sm-6">
+
+                                            <div class="form-control">
+                                                <label> Nominees Email<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> mnominee@gmail.com </label>
+                                                <label class="displayNone"><input type="text" name="nomineesEmail2" value="nominee@gmail.com"> </label>
+                                            </div>
+
+                                            <div class="form-control">
+                                                <label> Nominees Phone No<span class="float-right"> : </span></label>
+                                                <label class="displayBlock"> 0123455432</label>
+                                                <label class="displayNone"><input type="text" name="nomineesPhone2" value="0123456789"> </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- End of Employee Dependents Information view ----->
+                    </div>
+
+                    <!-- End of Employee GeneralInfo Information Tab -->
+                    <!-- Start of Office Information Tab -->
+
+                    <div id="officeInfo" class="tab-pane fade">
+
+                        <!-- Start of Employee Work Information view ----->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseWorkInfo" aria-expanded="true" class="default1">
+                                        Employee Official Information</a>
+                                </h4>
+                            </div>
+                            <div id="collapseWorkInfo" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> Company name <span class="float-right">:</span></label>
+                                            <label class="displayBlock"> ISHO Limited </label>
+                                            <label class="displayNone"><input type="text" name="companyName" value="ISHO Limited"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Designation <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Manager </label>
+                                            <label class="displayNone"><input type="text" name="employeeDesignation" value="Manager"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Office Phone <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> +881234567895</label>
+                                            <label class="displayNone"><input type="number" name="officePhone" value="881234567895"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Extension <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 7895</label>
+                                            <label class="displayNone"><input type="text" name="extensionNo" value="7895"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Office Email <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> najmul@isho.com.bd</label>
+                                            <label class="displayNone"><input type="email" name="nomineesPhone" value="najmul@isho.com.bd"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Working location <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Banani </label>
+                                            <label class="displayNone"><input type="text" name="nomineesPhone" value="Banani"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Department <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Production </label>
+                                            <label class="displayNone"><input type="text" name="nomineesPhone" value="Production"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Section <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Finishing </label>
+                                            <label class="displayNone"><input type="text" name="nomineesPhone" value="Finishing"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Line <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Warehouse </label>
+                                            <label class="displayNone"><input type="text" name="nomineesPhone" value="Warehouse"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Floor <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 1st Floor </label>
+                                            <label class="displayNone"><input type="text" name="nomineesPhone" value="1st Floor"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Unit <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Factory Production Unit 1 </label>
+                                            <label class="displayNone"><input type="text" name="nomineesPhone" value="Factory Production Unit 1"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Reporting To <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> KH.Shameem Al Mamun   -Production </label>
+                                            <label class="displayNone"><input type="text" name="reportingTo" value="0123456789"> </label>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> Punch Card No <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> ISHOFM0123 </label>
+                                            <label class="displayNone"><input type="text" name="punchCardNo" value="0123456789"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Employee ID <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> ISHOFM0123 </label>
+                                            <label class="displayNone"><input type="text" name="employeeId" value="ISHOFM0123"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Employee Status <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> active</label>
+                                            <label class="displayNone">
+                                                <input type="radio" name="nomineesPhone">Active                                           
+                                                <input type="radio" name="nomineesPhone">Inactive                                          
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Grade <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Grade-3 </label>
+                                            <label class="displayNone">                                                
+                                                <select name="employeeGrade" id="">
+                                                    <option value="">Select Grade</option>
+                                                    <option value="Grade-1">Grade-1</option>
+                                                    <option value="Grade-2">Grade-2</option>
+                                                    <option value="Grade-3">Grade-3</option>
+                                                    <option value="Grade-4">Grade-4</option>
+                                                </select>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Shift <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Gen-(Start:08:00:00,End:17:00:00) </label>
+                                            <label class="displayNone">
+                                                <select name="employeeGrade" id="">
+                                                    <option value="">Select Grade</option>
+                                                    <option value="Gen-(Start:08:00:00,End:17:00:00)">Gen-(Start:08:00:00,End:17:00:00)</option>
+                                                    <option value="Gen-(Start:08:00:00,End:17:00:00)">Gen-(Start:08:00:00,End:17:00:00)</option>
+                                                    <option value="Gen-(Start:08:00:00,End:17:00:00)">Gen-(Start:08:00:00,End:17:00:00)</option>
+                                                    <option value="Gen-(Start:08:00:00,End:17:00:00)">Gen-(Start:08:00:00,End:17:00:00)</option>                                                    
+                                                </select>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Weekly Off <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Friday - Saturday </label>
+                                            <label class="displayNone">
+                                                <select name="weeklyOff" id="">
+                                                    <option value="">Select Provision</option>
+                                                    <option value="Friday - Saturday">Friday - Saturday</option>                                                    
+                                                    <option value="Saturday - Sunday">Saturday - Sunday</option>                                                    
+                                                    <option value="Friday">Friday</option>                                                           
+                                                </select>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Date of joining <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 04/03/2020 </label>
+                                            <label class="displayNone"><input type="date" name="dateOfJoining" value="04/03/2020"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Provision <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 6 Months </label>
+                                            <label class="displayNone">
+                                                <select name="weeklyOff" id="">
+                                                    <option value="">Select Provision</option>                                                    
+                                                    <option value="6 Months">6 Months</option>                                                    
+                                                    <option value="3 Months">3 Months</option>                                                           
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Employee Type <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Management Staff </label>
+                                            <label class="displayNone">
+                                                <select name="employeeType" id="">
+                                                    <option value="">Select Employee Type</option>                                                    
+                                                    <option value="Management Staff">Management Staff</option>                                                    
+                                                    <option value="Staff ">Staff </option>                                                           
+                                                    <option value="worker ">Worker </option>                                                           
+                                                </select>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Employment Type <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Contractual </label>
+                                            <label class="displayNone">
+                                                <select name="weeklyOff" id="">
+                                                    <option value="">Select Employee Type</option>                                                    
+                                                    <option value="Management Staff">Management Staff</option>                                                    
+                                                    <option value="Staff ">Staff </option>                                                           
+                                                    <option value="worker ">Worker </option>                                                           
+                                                </select> 
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="officeInfoEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="officeInfoUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- End of Employee Work Information view ----->
+                        <!-- Start of Employee Payroll Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapsePayroll" aria-expanded="true" class="default1">
+                                        Payroll Information</a>
+                                </h4>
+                            </div>
+                            <div id="collapsePayroll" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> Basic <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 20000 <span>/-</span></label>
+                                            <label class="displayNone"><input type="text" name="employeeBasic" value="20000"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Residence <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 8000 <span>/-</span></label>
+                                            <label class="displayNone"><input type="text" name="employeeResidence" value="8000"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Lunch Allowance<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 1500 <span>/-</span></label>
+                                            <label class="displayNone"><input type="text" name="lunchAllowance" value="1500"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Mobile Allowance<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 500 <span>/-</span></label>
+                                            <label class="displayNone"><input type="text" name="mobileAllowance" value="500"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Medical Allowance<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 5000 <span>/-</span></label>
+                                            <label class="displayNone"><input type="text" name="medicalAllowance" value="0123456789"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Work Entitle <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Monthly Basis </label>
+                                            <label class="displayNone"><input type="text" name="workEntitle" value="Monthly Basis"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Over Time <span class="float-right">:</span></label>
+                                            <label class="displayBlock"> Yes </label>
+                                            <label class="displayNone"><input type="text" name="nomineesPhone" value="0123456789"> </label>
+                                        </div>
+                                        <!-- <div class="form-control">
+                                            <label> Staff Attn Bonus <span class="float-right">:</span></label>
+                                            <label> NO </label>
+                                        </div> -->
+
+                                        <div class="form-control">
+                                            <label> Transport Allowance<span class="float-right">:</span></label>
+                                            <label class="displayBlock"> 500 </label>
+                                            <label class="displayNone"><input type="text" name="transportAllowance" value="500"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Gross <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 40000 <span>/-</span></label>
+                                            <label class="displayNone"><input type="text" name="employeeGross" value="40000"> </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> PF Facility<span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Yes </label>
+                                            <label class="displayNone">
+                                                <input type="radio" name="pfFacility" value="yes"> Yes
+                                                <input type="radio" name="pfFacility" value="no"> No
+                                            </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Fastival Bonus <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Yes </label>
+                                            <label class="displayNone">
+                                                <input type="radio" name="FastivalBonus" value="yes"> Yes
+                                                <input type="radio" name="FastivalBonus" value="no"> No
+                                            </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Yearly Bonus <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> Yes </label>
+                                            <label class="displayNone">
+                                                <input type="radio" name="yearlyBonus" value="yes"> Yes
+                                                <input type="radio" name="yearlyBonus" value="no"> No
+                                            </label>
+                                        </div>
+                                        <!-- <div class="form-control">
+                                            <label> Salary Rules <span class="float-right"> : </span></label>
+                                            <label> Rules 1.5 </label>
+                                        </div> -->
+
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="PayrollInfoEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="PayrollInfoUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- End of Employee Payroll Information view ----->
+                        <!-- Start of Employee Deduction Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseDeduction" aria-expanded="true" class="default1">
+                                        Deduction</a>
+                                </h4>
+                            </div>
+                            <div id="collapseDeduction" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+                                        <div class="form-control">
+                                            <label> Absent <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 00.00 </label>
+                                            <label class="displayNone"><input type="text" name="employeeAbsent" value="00.00"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> IOU <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 00.00 </label>
+                                            <label class="displayNone"><input type="text" name="employeeIou" value="00.00"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Mobile Bill <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 00.00 </label>
+                                            <label class="displayNone"><input type="text" name="mobileBill" value="00.00"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Tax <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 00.00 </label>
+                                            <label class="displayNone"><input type="text" name="employeeTax" value="00.00"> </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> Revenue stamp <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 00.00 </label>
+                                            <label class="displayNone"><input type="text" name="revenueStamp" value="00.00"> </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Food Deduction <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> No </label>
+                                            <label class="displayNone">
+                                                <input type="radio" name="foodDeduction" value="Yes">Yes
+                                                <input type="radio" name="foodDeduction" value="No">No
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> Total Deduction Amount <span class="float-right"> : </span></label>
+                                            <label> 00.00 </label>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="card-body col-sm-6">
+
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="deductionInfoEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="deductionInfoUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Employee Deduction Information view ----->
+
+                    </div>
+
+                    <!-- End of Office Information Tab -->
+                    <!-- Start of Documents Information Tab -->
+
+                    <div id="employeeDocuments" class="tab-pane fade">
+
+                        <!-- Start of Employee Personal Document Information view ----->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapsePersonalDocument" aria-expanded="true" class="default1">
+                                        Personal Documents & Certificate</a>
+                                </h4>
+                            </div>
+                            <div id="collapsePersonalDocument" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+                                        <div class="form-control">
+                                            <label><span> 1. </span> Birth Certificate <span class="float-right"> : </span></label>
+                                            <label class="documents displayBlock">
+                                                <a data-toggle="modal" data-target="#BirthModal" href="img/academic-excellence.jpg">
+                                                    <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"></a>
+                                                
+                                                <div class="modal fade" id="BirthModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title" id="exampleModalLabel">Birth Certificate</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="100%" src="img/academic-excellence.jpg" alt="Employee profile">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="birthCertificate" value="">
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 2. </span> NID <span class="float-right"> : </span></label>
+                                            <label class="documents displayBlock">
+                                                <a data-toggle="modal" data-target="#NidModal" href="img/academic-excellence.jpg">
+                                                    <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"></a>
+                                                
+                                                <div class="modal fade" id="NidModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title" id="exampleModalLabel">Birth Certificate</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="100%" src="img/academic-excellence.jpg" alt="Employee profile">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="employeeNid"> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> <span> 3. </span> Passport <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"></label>
+                                            <label class="displayNone"><input type="file" name="employeePassport" /> </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> <span> 4. </span> Driving License <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"></label>
+                                            <label class="displayNone"><input type="file" name="drivingLicense" /> </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="documentsEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="documentsUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- End of Employee Personal Document Information view ----->
+                        <!-- Start of Employee Financial Document Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFinancialDocument" aria-expanded="true" class="default1">
+                                        Financial Documents & Certificate</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFinancialDocument" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label><span> 1. </span> TIN Certificate <span class="float-right"> : </span></label>
+                                            <label class="documents displayBlock">
+                                                <a data-toggle="modal" data-target="#TinModal" href="img/academic-excellence.jpg">
+                                                    <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"></a>
+                                                
+                                                <div class="modal fade" id="TinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title" id="exampleModalLabel">Birth Certificate</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="100%" src="img/academic-excellence.jpg" alt="Employee profile">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 2. </span> Income Tax return <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> <span> 4. </span> Sallary Certificate <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" />
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"> 
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="financialEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="financialUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End of Employee Financial Document Information view ----->
+                        <!-- Start of Educational Certificate Transcript Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseCertificateTranscript" aria-expanded="true" class="default1">
+                                         Educational Certificate & Transcript</a>
+                                </h4>
+                            </div>
+                            <div id="collapseCertificateTranscript" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <h4> 1. Certificate</h4>
+
+                                        <div class="form-control">
+                                            <label><span> 1. </span> SSC or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="documents displayBlock">
+                                                <a data-toggle="modal" data-target="#SSCModal" href="img/academic-excellence.jpg">
+                                                    <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"></a>
+                                                
+                                                <div class="modal fade" id="SSCModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title" id="exampleModalLabel">Birth Certificate</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="100%" src="img/academic-excellence.jpg" alt="Employee profile">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 2. </span> HSC or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> <span> 3. </span> BSC or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 4. </span> Master's or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+                                        <h4>2. Transcript</h4>
+                                        <div class="form-control">
+                                            <label><span> 1. </span> SSC or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="documents displayBlock">
+                                                <a data-toggle="modal" data-target="#SSCModal" href="img/academic-excellence.jpg">
+                                                    <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"></a>
+                                                
+                                                <div class="modal fade" id="SSCModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title" id="exampleModalLabel">Birth Certificate</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="100%" src="img/academic-excellence.jpg" alt="Employee profile">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" />
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                             </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 2. </span> HSC or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" />
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                             </label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> <span> 3. </span> BSC or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 4. </span> Master's or Equivalent <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="certificateEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="certificateUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End of Educational Certificate Transcript Information view ----->
+                        <!-- Start of Employee Experience Document Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseExperienceDocuments" aria-expanded="true" class="default1">
+                                         Experience Documents</a>
+                                </h4>
+                            </div>
+                            <div id="collapseExperienceDocuments" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label><span> 1. </span> Experience Letter <span class="float-right"> : </span></label>
+                                            <label class="documents displayBlock">
+                                                <a data-toggle="modal" data-target="#SSCModal" href="img/academic-excellence.jpg">
+                                                    <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"></a>
+                                                
+                                                <div class="modal fade" id="SSCModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title" id="exampleModalLabel">Birth Certificate</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="100%" src="img/academic-excellence.jpg" alt="Employee profile">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" />
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 2. </span> Experience Letter <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 3. </span> Experience Letter <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> <span> 4. </span> Experience Letter <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"></label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="experienceEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="experienceUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End of Educational Experience Document Information view ----->
+                        <!-- Start of Professional Training Document Information view ----->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTrainingDocuments" aria-expanded="true" class="default1">
+                                        Professional Training Documents</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTrainingDocuments" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label><span> 1. </span> Training Certificate <span class="float-right"> : </span></label>
+                                            <label class="documents displayBlock">
+                                                <a data-toggle="modal" data-target="#SSCModal" href="img/academic-excellence.jpg">
+                                                    <img width="50" src="img/academic-excellence.jpg" alt="Employee profile"></a>
+                                                
+                                                <div class="modal fade" id="SSCModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title" id="exampleModalLabel">Birth Certificate</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <img width="100%" src="img/academic-excellence.jpg" alt="Employee profile">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label> <span> 2. </span> Training Certificate <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> <span> 3. </span> Training Certificate <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> </label>
+                                            <label class="displayNone">
+                                                <input type="file" name="drivingLicense" /> 
+                                                <img width="50" src="img/academic-excellence.jpg" alt="Employee profile">
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="trainingEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="trainingUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End of Professional Training Document Information view ----->
+
+                    </div>
+
+                    <!-- End of Documents Information Tab -->
+                    <!-- Start of Performance Information Tab -->
+
+                    <div id="employeePerformance" class="tab-pane fade">
+                        <!-- Start of Performance Information -->
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="true">
+                                        Performance Information</a>
+                                </h4>
+                            </div>
+                        </div>
+
+                        <!-- End of 2020 Information -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapsePerformance2020" aria-expanded="true" class="default1">
+                                       2020</a>
+                                </h4>
+                            </div>
+                            <div id="collapsePerformance2020" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> January <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> A </label>
+                                            <label class="displayNone"><input type="text" name="february2020" value="A"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> February <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> B </label>
+                                            <label class="displayNone"><input type="text" name="january2020" value="B"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> March <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> A </label>
+                                            <label class="displayNone"><input type="text" name="march2020" value="A"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> April <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="april2020" value=""></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> May <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="may2020" value=""></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> June <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="june2020" value=""></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+                                        <div class="form-control">
+                                            <label> July <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="july2020" value=""></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> August <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> </label>
+                                            <label class="displayNone"><input type="text" name="august2020" value=""></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> September <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="september2020" value=""></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> October <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="october2020" value=""></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> November <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="november2020" value=""></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> December <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  </label>
+                                            <label class="displayNone"><input type="text" name="december2020" value=""></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="performanceEdit2020">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="performanceUpdate2020">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- End of 2020 Information -->
+                        <!-- Start of 2019 Information -->
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapsePerformance2019" aria-expanded="true" class="default1">
+                                       2019</a>
+                                </h4>
+                            </div>
+                            <div id="collapsePerformance2019" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> January <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> D </label>
+                                            <label class="displayNone"><input type="text" name="january2019" value="D"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> February <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> C </label>
+                                            <label class="displayNone"><input type="text" name="february2019" value="C"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> March <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> B </label>
+                                            <label class="displayNone"><input type="text" name="march2019" value="B"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> April <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> B </label>
+                                            <label class="displayNone"><input type="text" name="april2019" value="B"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> May <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> B </label>
+                                            <label class="displayNone"><input type="text" name="may2019" value="B"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> June <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> A </label>
+                                            <label class="displayNone"><input type="text" name="june2019" value="A"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+                                        <div class="form-control">
+                                            <label> July <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> F </label>
+                                            <label class="displayNone"><input type="text" name="july2019" value="F"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> August <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> E </label>
+                                            <label class="displayNone"><input type="text" name="august2019" value="E"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> September <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> D </label>
+                                            <label class="displayNone"><input type="text" name="september2019" value="D"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> October <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> C </label>
+                                            <label class="displayNone"><input type="text" name="october2019" value="C"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> November <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> B </label>
+                                            <label class="displayNone"><input type="text" name="november2019" value="B"></label>
+                                        </div>
+                                        <div class="form-control">
+                                            <label> December <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> A </label>
+                                            <label class="displayNone"><input type="text" name="december2019" value="A"></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="performanceEdit2019">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="performanceUpdate2019">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- End of 2019 Information -->
+                    </div>
+
+                    <!-- End of Performance Information Tab -->
+                    <!-- Start of Leave Information Tab -->
+
+                    <div id="employeeLeave" class="tab-pane fade">
+                        <!-- Start of Performance Information -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseLeave" aria-expanded="true" class="default1">
+                                        Leave Information </a>
+                                </h4>
+                            </div>
+                            <div id="collapseLeave" class="panel-collapse collapse in" aria-expanded="true">
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label>Casual Leave <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  15 Days</label>
+                                            <label class="displayNone"><input type="number" name="csualLeave" value="15"></label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label>Paid Leave <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  15 Days</label>
+                                            <label class="displayNone"><input type="number" name="paidLeave" value="15"></label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label>Earned Leave <span class="float-right"> : </span></label>
+                                            <label class="displayBlock">  15 Days </label>
+                                            <label class="displayNone"><input type="number" name="earnedLeave" value="15"></label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label>Sick Leave <span class="float-right"> : </span>15 Days</label>
+                                            <label class="displayBlock"> 15 Days </label>
+                                            <label class="displayNone"><input type="number" name="sickLeave" value="15"></label>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label>Maternity Leave <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 150 Days </label>
+                                            <label class="displayNone"><input type="number" name="maternityLeave" value="150"></label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label>Paternity Leave <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 30 Days </label>
+                                            <label class="displayNone"><input type="number" name="paternityLeave" value="30"></label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label>Special Leave <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 5 Days</label>
+                                            <label class="displayNone"><input type="number" name="specialLeave" value="5"></label>
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label>Study Leave <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> 30 Days </label>
+                                            <label class="displayNone"><input type="number" name="studyLeave" value="30"></label>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label>Total Used Leave <span class="float-right"> : </span></label>
+                                            <label> 40 Days </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body col-sm-6">
+
+                                        <div class="form-control">
+                                            <label> Approval person <span class="float-right"> : </span></label>
+                                            <label class="displayBlock"> KH.Shameem Al Mamun   -Production </label>
+                                            <label class="displayNone"><input type="text" name="approvalPerson" value="KH.Shameem Al Mamun   -Production"></label>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="panel-body">
+                                    <div class="card-body col-sm-10 col-sm-offset-1">
+                                        <div class="profile-form-button">
+                                            <label class="displayBlock"><button class="btn btn-success" id="leaveInfoEdit">Edit</button></label>
+                                            <label class="displayNone"><button class="btn btn-success" id="leaveInfoUpdate">Update</button></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Leave Information -->
+
+                    </div>
+                    <!-- End of Leave Information Tab -->
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function() {
+
+
+
+
+            // $('.displayBlock').css({
+            //     'display': 'none'
+            // });
+            // $('.displayNone').css({
+            //     'display': 'block'
+
+        });
+    </script>
+</body>
+
+</html>

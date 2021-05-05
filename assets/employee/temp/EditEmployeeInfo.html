@@ -1,0 +1,896 @@
+{% include "head.html" %} {% load static from staticfiles %}
+<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+<!-- Start Header Top Area -->
+{% include "headTop.html" %}
+<!-- End Header Top Area -->
+<!-- Mobile Menu start -->
+{% include "sideBar.html" %}
+<!-- Main Menu area End-->
+<div class="form-element-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="basic-tb-hd">
+                        <h2 style="text-align:center;">Employee Personal Informaiton</h2>
+                    </div>
+                    <form method="POST" action="{% url 'updateEmployeeInfo' employeeInfo.id%}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>First name</label>
+                                        <input type="text" class="form-control" name="first_name" value="{{ employeeInfo.first_name}}" placeholder="First Name" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Middle name</label>
+                                        <input type="text" name='middle_name' class="form-control" value="{{ employeeInfo.middle_name}}" placeholder="Middle Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Last name</label>
+                                        <input type="text" class="form-control" name="last_name" value="{{ employeeInfo.last_name}}" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Employee name in bangla</label>
+                                        <input type="text" class="form-control" name="name_in_bangla" value="{{ employeeInfo.name_in_bangla}}" placeholder="Name in Bangla">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Father Name</label>
+                                        <input type="text" class="form-control" name="father_or_husband_name" value="{{ employeeInfo.father_or_husband_name}}" placeholder="Father Name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Father name in bangla</label>
+                                        <input type="text" class="form-control" name="father_or_husband_name_in_bangla" value="{{ employeeInfo.father_or_husband_name_in_bangla}}" placeholder="Father Name in Bangla">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Mother name</label>
+                                        <input type="text" class="form-control" name="mother_name" value="{{ employeeInfo.mother_name}}" placeholder="Mother Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Spouse name</label>
+                                        <input type="text" class="form-control" name="spouse_name" value="{{ employeeInfo.spouse_name}}" placeholder="Spouse Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Number of Children</label>
+                                        <input type="number" class="form-control" name="children" value="{{ employeeInfo.children}}" placeholder="Number of Children">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <label for="gender">gender</label>
+                                        <select name="sex" class="selectpicker" id="gender" required>
+                                            <option>Select Gender</option>
+                                            <option value="Male" {% if employeeInfo.sex == 'Male' %}selected="selected"{% endif %} >Male</option>
+                                            <option value="Female" {% if employeeInfo.sex == 'Female' %}selected="selected"{% endif %} >Female</option>
+                                            <option value="Others" {% if employeeInfo.sex == 'Others' %}selected="selected"{% endif %} >Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <label>Marital Status</label>
+                                        <select class="selectpicker" name="maritial_status">
+                                        <option>select marital status</option>
+                                        <option {% if employeeInfo.maritial_status == "Unmarried" %} selected {% endif %} value="Unmarried">Unmarried</option>
+                                        <option {% if employeeInfo.maritial_status == "Married" %} selected {% endif %} value="Married">Married</option>
+                                        <option {% if employeeInfo.maritial_status == "Divorce" %} selected {% endif %} value="Divorce">Divorce</option>
+                                        <option {% if employeeInfo.maritial_status == "Widowed" %} selected {% endif %} value="Widowed">Widowed</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-phone"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Phone Number</label>
+                                        <input type="text" class="form-control" name="phone_number" value="{{ employeeInfo.phone_number}}" placeholder="Phone Number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-calendar"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Date of birth</label>
+                                        <input type="date" class="form-control" id="date_of_birth" value="{{ employeeInfo.date_of_birth}}" name="date_of_birth" placeholder="Date of Birth" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-star"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Age</label>
+                                        <input type="number" class="form-control" name="age" id="age" placeholder="Age" value="{{ employeeInfo.age }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-star"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <div class="bootstrap-select fm-cmp-mg">
+                                            <label>Blood Group</label>
+                                            <select class="selectpicker" name="blood_group">
+                                                    <option>Select Blood Group</option>                                         
+                                                    <option value="A+" {% if employeeInfo.blood_group == "A+" %}selected="selected"{% endif %}>A+</option>
+                                                
+                                                    <option value="A-" {% if employeeInfo.blood_group == "A-" %}selected="selected"{% endif %}>A-</option>
+                                                
+                                                    <option value="B+" {% if employeeInfo.blood_group == "B+" %}selected="selected"{% endif %}>B+</option>
+                                                
+                                                    <option value="B-" {% if employeeInfo.blood_group == "B-" %}selected="selected"{% endif %}>B-</option>
+                                                
+                                                    <option value="O+" {% if employeeInfo.blood_group == "O+" %}selected="selected"{% endif %}>O+</option>
+                                                
+                                                    <option value="O-" {% if employeeInfo.blood_group == "O-" %}selected="selected"{% endif %}>O-</option>
+                                                
+                                                    <option value="AB+" {% if employeeInfo.blood_group == "AB+" %}selected="selected"{% endif %}>AB+</option>
+                                                
+                                                    <option value="AB-" {% if employeeInfo.blood_group == "AB+" %}selected="selected"{% endif %}>AB-</option>
+                                                
+                                            
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <div class="bootstrap-select fm-cmp-mg">
+                                            <label>Religion</label>
+                                            <select class="selectpicker" name="religion">
+                                                <option >Select</option>
+                                                <option value="Islam" {% if employeeInfo.religion == "Islam" %}selected="selected" {% endif %}>Islam</option>
+                                                <option value="Hindu" {% if employeeInfo.religion == "Hindu" %}selected="selected" {% endif %}>Hindu</option>
+                                                <option value="Christian" {% if employeeInfo.religion == "Christian" %}selected="selected" {% endif %}>Christian</option>
+                                                <option value="Sikh" {% if employeeInfo.religion == "Sikh" %}selected="selected" {% endif %}>Sikh</option>
+                                                <option value="Parsi" {% if employeeInfo.religion == "Parsi" %}selected="selected" {% endif %}>Parsi</option>
+                                                <option value="Jain" {% if employeeInfo.religion == "Jain" %}selected="selected" {% endif %}>Jain</option>
+                                                <option value="Buddhist" {% if employeeInfo.religion == "Buddhist" %}selected="selected" {% endif %}>Buddhist</option>
+                                                <option value="Jewish" {% if employeeInfo.religion == "Jewish" %}selected="selected" {% endif %}>Jewish</option>
+                                                <option value="Atheist" {% if employeeInfo.religion == "Atheist" %}selected="selected" {% endif %}>Atheist</option>
+                                                <option value="Other" {% if employeeInfo.religion == "Other" %}selected="selected" {% endif %}>Other</option>
+                                            
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Nationality</label>
+                                        <input type="text" class="form-control" name="nationality" placeholder="Nationality" value="{{ employeeInfo.nationality}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    {% comment %}
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <div class="bootstrap-select fm-cmp-mg">
+                                            <label>Id Type</label>
+                                            <select class="selectpicker" name="id_type">
+                                                <option> Select Identification Document Type</option>
+                                                <option {% if employeeInfo.id_type == '1' %} selected="selected"{% endif %} value="1">NID</option>
+                                                <option {% if employeeInfo.id_type == '2' %} selected="selected"{% endif %} value="2">Passport</option>
+                                                <option {% if employeeInfo.id_type == '3' %} selected="selected"{% endif %} value="3">Driving Lisence</option>
+                                            </select>
+                                        </div>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>National Id Number</label>
+                                        <input type="text" class="form-control" name="id_number" placeholder="Id Number" value="{{ employeeInfo.id_number}}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Identification Mark</label>
+                                        <input type="text" class="form-control" name="identification_mark" value="{{ employeeInfo.identification_mark}}" placeholder="Identification Mark">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Upload your image</label>
+                                        <input type="file" name="personal_image" placeholder="Personal Image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <button class="btn btn-success notika-btn-success waves-effect btn-lg" style="margin-left: 40%;">Update</button>
+                                    <div class="nk-int-st">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="form-element-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="basic-tb-hd">
+                        <h2 style="text-align:center;">Employee Official Information</h2>
+                    </div>
+                    <form method="POST" action="{% url 'updateEmployeeOfficialInfo' employeeInfo.id %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Company name</label>
+                                        <select class="selectpicker" name="company_name" id="company_name"> 
+                                            {% for val in company%}
+                                                <option value="{{val.id}}" {% if val.id == employeeOfficialInfo.company_name %} selected="selected"{% endif %}>{{ val.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <input type="hidden" name="personal_id" value='{{ personal_id.id}}'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Sitting location ({{employeeOfficialInfo.sitting_location}})</label>
+                                        <select class="selectpicker" name="sitting_location" id="location_name">
+                                        {% if location_list %}
+                                            <option value="0">Select Location</option>
+                                            {% for data in location_list %}
+                                                <option value="{{data.id}}" {% if  data.id == employeeOfficialInfo.sitting_location %} selected {% endif %}>{{ data.location_name }}{% if data.short_name %}({{data.short_name}}){% endif %}</option>
+                                            {% endfor %}
+                                        {% else %}
+                                            <option value="0">Select Location</option>
+                                        {% endif %}
+                                    </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <label>Department</label>
+                                        <select class="selectpicker" name="department">
+                                            {% for val in department%}
+                                                <option value="{{val.id}}" {% if val.id == employeeOfficialInfo.department %}selected="selected" {% endif %}>
+                                                {{ val.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Section</label>
+                                        <input type="text" class="form-control" name="section" value="{{ employeeOfficialInfo.section }}" placeholder="Section">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Line</label>
+                                        <input type="text" class="form-control" name="line" value="{{ employeeOfficialInfo.line }}" placeholder="Line">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Floor</label>
+                                        <input type="text" class="form-control" name="floor" value="{{employeeOfficialInfo.floor}}" placeholder="Floor">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Unit</label>
+                                        <input type="text" class="form-control" name="unit" placeholder="Unit" value="{{employeeOfficialInfo.unit}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Report To</label>
+                                        <select class="selectpicker" name="report_to">
+                                            {% for val in personalInfoOfHeads %}
+                                                <option {% if val.id == employeeOfficialInfo.report_to %}
+                                                    selected="selected"
+                                                {% endif %}  value="{{val.id}}" >{{ val.first_name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Designation</label>
+                                        <select class="selectpicker" name="designation">
+                                            {% for val in designation%}
+                                                <option value="{{val.id}}" {% if val.id == employeeOfficialInfo.designation %} selected="selected"
+                                                {% endif %}>{{ val.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-phone"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Employee Type</label>
+                                        <select class="selectpicker" name="employee_type">
+                                            {% for val in employeeType%}
+                                                <option value="{{val.list_item_val}}" {% if val.list_item_val == employeeOfficialInfo.employee_type %} selected="selected"
+                                                {% endif %}>{{ val.list_item}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-phone"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Punch Card Number</label>
+                                        <input type="text" class="form-control" value="{{employeeOfficialInfo.punch_card_number}}" name="punch_card_number" placeholder="Punch Card Number" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-star"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Employee Id</label>
+                                        <input type="text" class="form-control" name="employee_id" value="{{employeeOfficialInfo.employee_id}}" placeholder="Employee Id" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-star"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Employee Id Bangla</label>
+                                        <input type="text" class="form-control" value="{{employeeOfficialInfo.employee_id_bangla}}" name="employee_id_bangla" placeholder="Employee Id Bangla">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Gross</label>
+                                        <input type="number" class="form-control" value="{{employeeOfficialInfo.gross}}" name="gross" placeholder="Gross">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Initial Grade</label>
+                                        <input type="number" class="form-control" value="{{employeeOfficialInfo.initial_grade}}" name="initial_grade" placeholder="Initial Grade">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Grade</label>
+                                        <input type="text" class="form-control" value="{{ employeeOfficialInfo.grade }}" name="grade" placeholder="Grade">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="bnk-int-st">
+                                        <label>Shift</label>
+                                        <select class="selectpicker" name="shift">
+                                            {% for val in shift %} 
+                                                <option value="{{val.id}}" {% if val.id == employeeOfficialInfo.shift %}selected="selected"{% endif %}>{{val.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Weekly Off</label>
+                                        <select class="selectpicker" name="weekly_off">
+                                            <option {% if employeeOfficialInfo.weekly_off == 'Satday' %} selected="selected"{% endif %} value="Satday">Satday</option>
+                                            <option {% if employeeOfficialInfo.weekly_off == 'Sunday' %} selected="selected"{% endif %} value="Sunday">Sunday</option>
+                                            <option  {% if employeeOfficialInfo.weekly_off == 'Monday' %} selected="selected"{% endif %} value="Monday">Monday</option>
+                                            <option {% if employeeOfficialInfo.weekly_off == 'Tuesday' %} selected="selected"{% endif %} value="Tuesday">Tuesday</option>
+                                            <option {% if employeeOfficialInfo.weekly_off == 'Wednesday' %} selected="selected"{% endif %} value="Wednesday">Wednesday</option>
+                                            <option {% if employeeOfficialInfo.weekly_off == 'Thursday' %} selected="selected"{% endif %} value="Thursday">Thursday</option>
+                                            <option {% if employeeOfficialInfo.weekly_off == 'Friday' %} selected="selected"{% endif %} value="Friday">Friday</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <label>Date of joining</label>
+                                        <input type="text" name="date_of_joining" class="form-control input-sm date_filter" value="{{employeeOfficialInfo.date_of_joining|date:" d-m-Y "}}" placeholder="Date of Joining" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Provision</label>
+                                        <select class="selectpicker" name="provision">
+                                            <option {% if employeeOfficialInfo.provision == "1" %} selected="selected" {% endif %} value="1">1 month</option>
+                                            <option {% if employeeOfficialInfo.provision == "2" %} selected="selected" {% endif %} value="2">2 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "3" %} selected="selected" {% endif %} value="3">3 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "4" %} selected="selected" {% endif %} value="4">4 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "5" %} selected="selected" {% endif %} value="5">5 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "6" %} selected="selected" {% endif %} value="6">6 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "7" %} selected="selected" {% endif %} value="7">7 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "8" %} selected="selected" {% endif %} value="8">8 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "9" %} selected="selected" {% endif %} value="9">9 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "10" %} selected="selected" {% endif %} value="10">10 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "11" %} selected="selected" {% endif %} value="11">11 months</option>
+                                            <option {% if employeeOfficialInfo.provision == "12" %} selected="selected" {% endif %} value="12">12 months</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-calendar"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Office Email</label>
+                                        <input type="email" class="form-control" name="office_email" placeholder="Office Email" value="{{employeeOfficialInfo.office_email}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st" data-toggle="buttons">
+                                        <label>Overtime</label>
+                                        <label class="btn btn-default employee-form-check {% if employeeOfficialInfo.overtime %} active {% endif %}">
+                                            <input type="checkbox" autocomplete="off" name="overtime" {% if employeeOfficialInfo.overtime %} checked {% endif %}>
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st" data-toggle="buttons">
+                                        <label>Transport</label>
+
+                                        <label class="btn btn-default employee-form-check {% if employeeOfficialInfo.transport %} active {% endif %}">
+                                            <input type="checkbox" autocomplete="off" name="transport" {% if employeeOfficialInfo.transport %} checked {% endif %}>
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st" data-toggle="buttons">
+                                        <label>Tax</label>
+                                        <label class="btn btn-default employee-form-check {% if employeeOfficialInfo.tax %} active {% endif %}">
+                                            <input type="checkbox" autocomplete="off" name="tax" {% if employeeOfficialInfo.tax %} checked {% endif %}>
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st" data-toggle="buttons">
+                                        <label>Pf facility</label>
+                                        <label class="btn btn-default employee-form-check {% if employeeOfficialInfo.pf_facility %} active {% endif %}">
+                                            <input type="checkbox" autocomplete="off" name="pf_facility" {% if employeeOfficialInfo.pf_facility %} checked {% endif %}>
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Shop</label>
+                                        <select class="selectpicker" name="shop_id">
+                                            {% for val in shop %}
+                                                <option value="{{val.id}}" {% if val.id == employeeOfficialInfo.shop_id %}
+                                                    selected="selected"
+                                                {% endif %}>{{ val.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <label>Tin</label>
+                                        <input type="text" class="form-control" name="tin" placeholder="tin" value="{{employeeOfficialInfo.tin}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="notika-icon notika-support"></i>
+                                    </div>
+                                    <div class="nk-int-st" data-toggle="buttons">
+                                        <label>Is Head</label>
+                                        <label class="btn btn-default employee-form-check {% if employeeOfficialInfo.is_head %} active {% endif %}">
+                                            <input type="checkbox" autocomplete="off" name="is_head" {% if employeeOfficialInfo.is_head %} checked {% endif %}>
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <button type="submit" class="btn btn-success notika-btn-success waves-effect btn-lg" style="margin-left: 40%;"> Update </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+
+                                    </div>
+                                    <div class="nk-int-st">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% include "footer.html" %}
+
+<script>
+    $(document).ready(function() {
+        $("#date_of_birth").change(function() {
+            var dob = $("#date_of_birth").val();
+            const getAge = birthDate => Math.floor((new Date() - new Date(dob).getTime()) / 3.15576e+10)
+            var age = getAge(dob);
+            $("#age").val(age);
+        })
+    });
+
+    $("#company_name").change(function() {
+        $("#location_name").html('');
+        $("#location_name").append("<option value='0'>Select Location</option>");
+        $.ajax({
+            url: '/hr/AttendanceDeviceSetup',
+            data: {
+                'company': $(this).val(),
+            },
+            success: function(data) {
+                for (var i = 0; i < data.length; i++) {
+                    $("#location_name").append("<option value=" + data[i].id + ">" + data[i].location_name + "</option>");
+                }
+                $("#location_name").selectpicker("refresh");
+            },
+            error: function(data) {
+                $(this).val('');
+            }
+        });
+    });
+</script>
