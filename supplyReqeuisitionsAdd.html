@@ -1,0 +1,1242 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ISHO ERP</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Google Fonts
+		============================================ -->
+    <link href="assets/download/css.css" rel="stylesheet">
+    <!-- Bootstrap CSS
+
+  
+	============================================ -->
+  
+
+	  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/custom/dashbord.css">
+    <link rel="stylesheet" href="assets/css/custom/inventory.css">
+    <link rel="stylesheet" href="assets/css/custom/sales.css">
+    <!-- <link rel="stylesheet" href="assets/css/custom/clo_dashboard.css"> -->
+    
+    <link rel="stylesheet" href="assets/css/custom/final_layout.css">
+    <!-- font awesome CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.css">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <!-- <link rel="stylesheet" href="assets/css/meanmenu/meanmenu.min.css"> -->
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/scrollbar/jquery.mCustomScrollbar.min.css">
+
+    <!-- wave CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/wave/waves.min.css">
+    <link rel="stylesheet" href="assets/css/wave/button.css">
+    <link rel="stylesheet" href="assets/css/jvectormap/jquery-jvectormap-2.0.3.css">
+    <!-- Notika icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/notika-custom-icon.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/notika-custom-icon.css">
+    <!-- Data Table JS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
+
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- bootstrap select CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/bootstrap-select/bootstrap-select.css">
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/dropzone/dropzone.css">
+    <!-- dialog CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/dialog/sweetalert2.min.css">
+    <link rel="stylesheet" href="assets/css/dialog/dialog.css">
+    <!-- notification CSS
+		============================================ -->
+    <link rel="stylesheet" href="assets/css/notification/notification.css">
+    <!----Date picker css---->
+    <link rel="stylesheet" href="assets/css/datepicker.min.css">
+     <!----Jquery ui css---->
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/dasboard.css">
+
+    <link type="text/css" href="assets/download/multi-select/css/multi-select.css" media="screen" rel="stylesheet">
+
+    <script src="assets/js/customJs/sales_order.js"></script>
+</head>
+
+ 
+<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+<!-- Start Header Top Area -->
+
+
+<style>
+    .submenu_items{
+        display: none; 
+        width: 180px;
+        overflow: hidden;
+        left: -180px;
+        position: absolute;
+        top: 4px;
+    }
+    .submenu_items li{
+        background: #00c292;
+    }
+    .submenu_items li:hover{
+        background: #31cccc;
+    }
+    .user_profile_nav li:hover .submenu_items{
+        display: block;
+    }
+    .user_profile_nav li{
+        position:relative;
+    }
+    
+
+</style>
+<div class="header-top-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="logo-area">
+                    <a  href="/hr/dashboard" ><img src="assets/img/logo/logo.png" alt="" /></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="header-top-menu">
+                    <ul class="nav navbar-nav notika-top-nav">
+                    <li class="nav-item dropdown user_name user_profile" id="user_profile">
+                            <!-- <i class="notika-icon notika-support"></i> -->
+                            <div class="icon_thumb">
+                                
+                                    <img src="assets/img/user.jpg" style="border-radius: 50%;" alt="thumbnail1">
+                                
+                            </div>
+                            
+                             Rajib Chowdhury   ( Manager)  
+                            
+                            <ul class="user_profile_nav" id="user_profile_nav">
+                                <li><a href="/hr/myProfile"><i class=" fa fa-user"></i>Profile</a></li> 
+                                <li><a href="/hr/myLeaves"><i class="fa fa-level-down" aria-hidden="true"></i>Leave</a></li>
+                                <li><a href="/hr/myAttendance"><i class="fa fa-clock-o" aria-hidden="true"></i>Attendance</a></li>
+                                <li><a href="/hr/myDocumentsInfo"><i class="fa fa-file-text-o" aria-hidden="true"></i>Documents</a></li>
+                                <li><a href="/hr/mySalaryInfo"><i class="fa fa-bar-chart" aria-hidden="true"></i>Salary</a></li>
+                                <li><a href="/hr/empIou"><i class="fa fa-folder-open-o" aria-hidden="true"></i>IOU</a></li> 
+                                <li><a href="/hr/myCalendar"><i class=" fa fa-calendar "></i>Calendar</a></li>
+                                <li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>Settings</a>
+                                    <ul class="submenu_items">
+                                        <li><a href="/hr/passwordChange">Change Password</a></li>
+                                        <li><a href="/hr/myResignationInfo">Resignation</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                <li><a  href="/hr/hrLogout" ><i class=" fa fa-sign-out "></i>Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- End Header Top Area -->
+<!-- Mobile Menu start -->
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<style>
+.mobile-menu-area{
+	display:none;
+}
+.mean-container a.meanmenu-reveal{
+    width: 22px;
+    height: 22px;
+    right: 0;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    text-indent: -9999em;
+    line-height: 22px;
+    font-size: 1px;
+    display: block;
+    font-weight: 700;
+    float: right;
+    position: relative;
+    padding: 1px;
+    top: 13px;
+}
+.mean-container a.meanmenu-reveal span{
+    display:block;
+    background:#fff;
+    height:3px;
+    margin-top:3px;
+    width: 20px;
+}
+#dropdown {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    z-index: 9999;
+    left: 0px;
+    display: none;
+}
+#dropdown ul li {
+    background: #3297b1;
+    position: relative;
+    /* width: 100%; */
+    border-top: 1px solid#ddd;
+    clear: both;
+}
+#dropdown ul li.active>a{
+    border-bottom: 1px solid #dddddd;
+    -webkit-transition: 200ms ease-in-out;
+    transition: 300ms ease-in-out;
+    background-color: #207990;
+}
+#dropdown ul li.active .collapse {
+    transition: height 4s;
+    display: block !important;
+}
+#dropdown ul li.active ul li {
+    background: #3297b1 none repeat scroll 0 0;
+}
+#dropdown ul li.active ul li:first-child {
+    border-top: 0px solid#ddd;
+}
+#dropdown ul li a {
+    background: #3297b1 none repeat scroll 0 0;
+    color: #ffffff;
+    display: block;
+    /* float: left; */
+    font-size: 16px;
+    margin: 0;
+    padding: 1em 5%;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* width: 100%; */
+    font-weight: 400;
+    -webkit-transition: 200ms ease-in-out;
+    transition: 300ms ease-in-out;
+}
+#dropdown ul li [data-toggle="collapse"]::after {
+    color: #ffffff;
+    content: "";
+    font-size: 14px;
+    right: 15px;
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    top: 14px;
+    font-weight: 600;
+    background-image: url('../assets/images/sort_desc_disabled.png');
+}
+#dropdown ul li.active [data-toggle="collapse"]::after {
+    color: #ffffff;
+    content: "";
+    font-size: 14px;
+    width: 15px;
+    height: 20px;
+    right: 15px;
+    position: absolute;
+    top: 14px;
+    font-weight: 600;
+    background-image: url('../assets/images/sort_asc_disabled.png');
+}
+
+#dropdown ul li a:hover {
+    background: #207990;
+}
+.mean-container .mobile-menu::after {
+    color: #ffffff;
+    content: "MENU";
+    font-size: 20px;
+    left: 0;
+    position: absolute;
+    top: 12px;
+    font-weight: 600;
+}
+#dropdown ul li ul li a {
+    padding-left: 8%;
+    background-color: #207990;
+}
+#dropdown ul li ul li a:hover {
+    padding-left: 8%;
+    background-color: #289cb9;
+}
+@media screen and (max-width: 991px) {
+    .mobile-menu-area{
+        display: block;
+        height: 50px;
+    }
+}
+</style>
+
+
+<!-- Mobile Menu end -->
+<!-- Main Menu area start-->
+
+<div class="main-menu-area mg-tb-30">
+    <div class="container-fluid">
+        <div class="row">
+            
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro" id="moduleName">
+                        
+                            <li class="Calendar"><a data-toggle="tab" href="#Calendar"><i class=" fa fa-calendar-plus-o "></i> Calendar</a>
+                            </li>
+                        
+                            <li class="HR"><a data-toggle="tab" href="#HR"><i class=" fa fa-users "></i> HR</a>
+                            </li>
+                        
+                            <li class="Attendance"><a data-toggle="tab" href="#Attendance"><i class=" fa fa-clock-o "></i> Attendance</a>
+                            </li>
+                        
+                            <li class="Payroll"><a data-toggle="tab" href="#Payroll"><i class=" fa fa-money "></i> Payroll</a>
+                            </li>
+                        
+                            <li class="Leave"><a data-toggle="tab" href="#Leave"><i class=" fa fa-stethoscope "></i> Leave</a>
+                            </li>
+                        
+                            <li class="Sales"><a data-toggle="tab" href="#Sales"><i class=" fa fa-rocket "></i> Sales</a>
+                            </li>
+                        
+                            <li class="Production"><a data-toggle="tab" href="#Production"><i class="notika-icon notika-settings"></i> Production</a>
+                            </li>
+                        
+                            <li class="Inventory"><a data-toggle="tab" href="#Inventory"><i class=" fa fa-th "></i> Inventory</a>
+                            </li>
+                        
+                            <li class="SupplyChain"><a data-toggle="tab" href="#SupplyChain"><i class=" fa fa-user "></i> Supply Chain</a>
+                            </li>
+                        
+                            <li class="Settings"><a data-toggle="tab" href="#Settings"><i class=" fa fa-gears "></i> Settings</a>
+                            </li>
+                        
+                            <li class="Warehouse"><a data-toggle="tab" href="#Warehouse"><i class=" fa fa-home "></i> Warehouse</a>
+                            </li>
+                        
+                            <li class="Reports"><a data-toggle="tab" href="#Reports"><i class="notika-icon notika-settings"></i> Reports</a>
+                            </li>
+                        
+                    </ul>
+                    <div class="tab-content custom-menu-content">
+                        
+                            <div id="Calendar" class="tab-pane Calendar notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/hr/businessCalendarList"> Business Calendar</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/hr/rosteringList"> Roster Calendar</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/hr/offDayList"> Off Day List</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/hr/eventList"> Event List</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="HR" class="tab-pane HR notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/hr/showAllEmployeeList"> Employee Management</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/hr/newEmpRegLink"> Emp Registration &amp; Link Generate</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/hr/employee_shift_management/"> Employee Shift Management</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/hr/empIouList"> Emp IOU List</a>
+                                        </li>
+                                    
+                                        <li class="5"><a href="/hr/userAccessControl"> User Access Control</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Attendance" class="tab-pane Attendance notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/hr/liveAttendance"> Live Attendance</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/hr/manualAttendanceUpload"> Manual Attendance Upload</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/hr/dailyAttendance"> Daily Attendance</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/hr/monthlyAttendance"> Attendance Report</a>
+                                        </li>
+                                    
+                                        <li class="5"><a href="/hr/absentDashboard"> Attendance Management</a>
+                                        </li>
+                                    
+                                        <li class="6"><a href="/hr/myAttendance"> My Attendance</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Payroll" class="tab-pane Payroll notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/hr/PayrollHeadList"> Payroll Head</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/hr/MonthlyEarningDeduction"> Monthly Earning &amp; Deduction</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/hr/SalaryProcess"> Salary Process</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/hr/ProcessedSalaryList"> Processed List</a>
+                                        </li>
+                                    
+                                        <li class="5"><a href="/hr/overtime-process"> Overtime Process</a>
+                                        </li>
+                                    
+                                        <li class="6"><a href="/hr/EmployeeSalaryDetails"> Salary Details</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Leave" class="tab-pane Leave notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/hr/leaveApplication"> Leave Application</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/hr/leaveApplicationList"> Leave Application List</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/hr/myLeaves"> My Leaves</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/hr/leaveApproval"> Leave Approval</a>
+                                        </li>
+                                    
+                                        <li class="5"><a href="/hr/compensatoryLeave"> Compensatory Leave</a>
+                                        </li>
+                                    
+                                        <li class="6"><a href="/hr/compensatoryLeaveApprove"> Compensatory Leave Approve </a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Sales" class="tab-pane Sales notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/sale/salesOrderList"> Sales Order List</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/sale/invoicelist"> Sales History</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/sale/OrderPosSales"> Invoice From Order</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/sale/pos"> Sales</a>
+                                        </li>
+                                    
+                                        <li class="5"><a href="/sale/salesOrder"> Sales Order</a>
+                                        </li>
+                                    
+                                        <li class="6"><a href="/sale/displayrequestion"> FG Display</a>
+                                        </li>
+                                    
+                                        <li class="7"><a href="/sale/CustomerList"> Customer List</a>
+                                        </li>
+                                    
+                                        <li class="8"><a href="/sale/productlistForStorepoint"> Product List for Storepoint</a>
+                                        </li>
+                                    
+                                        <li class="9"><a href="/sale/GiftCard"> Gift Card</a>
+                                        </li>
+                                    
+                                        <li class="10"><a href="/warehouse/customerchalan"> Customer Receipt</a>
+                                        </li>
+                                    
+                                        <li class="11"><a href="/warehouse/customerchalanlist"> Customer Receipt list</a>
+                                        </li>
+                                    
+                                        <li class="12"><a href="/sale/cloinformation"> CLO</a>
+                                        </li>
+                                    
+                                        <li class="13"><a href="/sale/productlistforonline"> Product List For Web</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Production" class="tab-pane Production notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/production/bomcmpcreate"> Component Add</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Inventory" class="tab-pane Inventory notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/inventory/RMCategoryList"> RM Category</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/inventory/RMSubCategoryList"> RM Sub Category</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/inventory/RMUoMList"> RM UoM</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/inventory/RMMaterialTypeList"> RM Material Types</a>
+                                        </li>
+                                    
+                                        <li class="5"><a href="/inventory/RMBrandList"> RM Brand</a>
+                                        </li>
+                                    
+                                        <li class="6"><a href="/inventory/RMSizeList"> RM Size</a>
+                                        </li>
+                                    
+                                        <li class="7"><a href="/inventory/RMColorList"> RM Color</a>
+                                        </li>
+                                    
+                                        <li class="8"><a href="/inventory/RMLibraryList"> RM Library</a>
+                                        </li>
+                                    
+                                        <li class="9"><a href="/inventory/RMQTYStockAudit"> RM Stock QTY Audit</a>
+                                        </li>
+                                    
+                                        <li class="10"><a href="/inventory/RMQCStockAudit"> RM Stock QC Audit</a>
+                                        </li>
+                                    
+                                        <li class="11"><a href="/inventory/RMRequisitionList"> RM Requisition</a>
+                                        </li>
+                                    
+                                        <li class="12"><a href="/inventory/RMPendingRequisitionList"> RM Pending Requisition</a>
+                                        </li>
+                                    
+                                        <li class="13"><a href="/inventory/RMRequisitionIssue"> RM Requisition Issue</a>
+                                        </li>
+                                    
+                                        <li class="14"><a href="/inventory/RMRequisitionEntry"> RM Requisition Entry</a>
+                                        </li>
+                                    
+                                        <li class="15"><a href="/dashboard/item"> Item Add Request</a>
+                                        </li>
+                                    
+                                        <li class="16"><a href="/dashboard/size-color"> Size / Color</a>
+                                        </li>
+                                    
+                                        <li class="17"><a href="/inventory/fgStockTemp"> FG Product</a>
+                                        </li>
+                                    
+                                        <li class="18"><a href="/temporary/generate-barcode"> Generate Barcode</a>
+                                        </li>
+                                    
+                                        <li class="19"><a href="/inventory/FgProductMerge"> Product merge</a>
+                                        </li>
+                                    
+                                        <li class="20"><a href="/inventory/GenerateTagList"> Generate Tag</a>
+                                        </li>
+                                    
+                                        <li class="21"><a href="/inventory/GenerateSticker"> Generate Sticker</a>
+                                        </li>
+                                    
+                                        <li class="22"><a href="/inventory/BatchList"> Batch Add</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="SupplyChain" class="tab-pane SupplyChain notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                    <li class="1"><a href="addSupplier.html"> Supplier Add Request</a>
+                                    </li>
+                                
+                                    <li class="2"><a href="supplierPendingList.html"> Pending Suppliers</a>
+                                    </li>
+                                
+                                    <li class="3"><a href="approvedSupplierList.html"> Approved Suppliers</a>
+                                    </li>
+                                
+                                    <li class="4"><a href="SupplyRulesList.html"> Supply Rules</a>
+                                    </li>
+                                
+                                    <li class="5"><a href="supplyRulesDetailsList.html"> Rules Details</a>
+                                    </li>
+                                
+                                    <li class="6"><a href="supplyReqeuisitionsList.html"> Requisitions</a>
+                                    </li>
+                                
+                                    <li class="7"><a href="BatchList.html"> Batch</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Settings" class="tab-pane Settings notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/hr/department"> Department</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/hr/designation"> Designation</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/hr/sectionMaster"> Section</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/hr/floor"> Floor</a>
+                                        </li>
+                                    
+                                        <li class="5"><a href="/hr/lineMaster"> Line</a>
+                                        </li>
+                                    
+                                        <li class="6"><a href="/hr/unitMaster"> Unit</a>
+                                        </li>
+                                    
+                                        <li class="7"><a href="/hr/shiftMaster"> Shift Setup</a>
+                                        </li>
+                                    
+                                        <li class="8"><a href="/hr/workingLocationSetup"> Working Location Setup</a>
+                                        </li>
+                                    
+                                        <li class="9"><a href="/hr/attendanceDeviceSetup"> Attendance Device Setup</a>
+                                        </li>
+                                    
+                                        <li class="10"><a href="/hr/userRole"> User Role</a>
+                                        </li>
+                                    
+                                        <li class="11"><a href="/sale/shippinglog"> Shipping location Setup</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Warehouse" class="tab-pane Warehouse notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/warehouse"> Store Transfer List</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/warehouse/generateTransferOrder"> Generate Store Transfer</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                            <div id="Reports" class="tab-pane Reports notika-tab-menu-bg animated flipInX">
+                                <ul class="notika-main-menu-dropdown">
+                                    
+                                        <li class="1"><a href="/report/SalesAnalysis"> Sales Analysis</a>
+                                        </li>
+                                    
+                                        <li class="2"><a href="/report/TopItemSales"> Top Item Sales</a>
+                                        </li>
+                                    
+                                        <li class="3"><a href="/report/CustomerDataAnalysis"> Customer Data Analysis</a>
+                                        </li>
+                                    
+                                        <li class="4"><a href="/report/WeeklySalesReport"> Weekly Sales Order Report</a>
+                                        </li>
+                                    
+                                </ul>
+                            </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+
+
+$( document ).ready(function() {
+    $(".notika-main-menu-dropdown").find('a').each(function(index, element){
+        if ('/supplyChain/supplyReqeuisitionsAdd' == $(element).attr('href')) {
+            
+            var moduleName = $(this).closest('div').attr("id");
+            $("."+moduleName).addClass('active');
+            $("."+moduleName+" a").attr('aria-expanded', 'true');
+            $(this).closest('li').addClass("activemenu");
+
+            sessionStorage.setItem("current_path",'/supplyChain/supplyReqeuisitionsAdd');
+            sessionStorage.setItem("moduleName",moduleName);
+            sessionStorage.setItem("anchor",this);
+            sessionStorage.setItem("li_class",$(this).parent().get(0).className);
+        }
+    });
+
+    var prv_url = 'http://localhost:8000/supplyChain/supplyReqeuisitionsList';
+    var split_path = prv_url.split('/');
+    var path = "";
+    
+    for(var i = 3; i < split_path.length; i++){
+        path += "/"+split_path[i];
+    }
+    if(sessionStorage.current_path == path){
+        var cls = sessionStorage.li_class.split(" ");
+        var li_class = cls[0]
+
+        $("."+sessionStorage.moduleName).addClass('active');
+        $("."+sessionStorage.moduleName+" a").attr('aria-expanded', 'true');
+        $("#"+sessionStorage.moduleName+" ."+li_class).addClass("activemenu");
+    }
+
+    $("#meanmenu-reveal").on('click', function(event){
+        $("#dropdown").slideToggle(500);
+    });
+
+    $("#dropdown ul li").click(function(){
+
+        if($("#dropdown ul li").hasClass( "active" )){
+            if($(this).hasClass( "active" ) == ''){
+                $("#dropdown ul li").removeClass( "active" );
+                $("#dropdown ul li a").removeAttr('aria-expanded');
+                $(this).addClass("active");
+                $(this + "ul").slideUp( "slow");
+            }else{
+                $("#dropdown ul li a").removeAttr('aria-expanded');
+                $("#dropdown ul li").removeClass( "active" );
+                $("#dropdown ul li ul").slideUp( "slow");
+            }
+            
+        }else{
+            $(this).addClass("active");
+            $(this + "ul").slideUp( "slow");
+        }
+    });
+});
+
+</script>
+<!-- Main Menu area End-->
+<!-- Start Status area -->
+    <style>
+    </style>
+    <div class="container-fluid" style="min-height:300px; background-color: white;">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h3 class="text-center">Purchase Requisition</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="category">Category <b style="color:red">*</b></label>
+                                <div class="col-sm-9">
+                                    <select name="category" class="form-control selectpicker" data-live-search="true" required id="category">
+                                        <option value="0">Select Category</option>
+                                        
+                                            <option value="1">Lacquer &amp; Chemical</option>
+                                        
+                                            <option value="2">Wood Metarial</option>
+                                        
+                                            <option value="3">Cutter</option>
+                                        
+                                            <option value="4">Tools </option>
+                                        
+                                            <option value="5">Hardware </option>
+                                        
+                                            <option value="6">Mattress</option>
+                                        
+                                            <option value="7">Stationary Item</option>
+                                        
+                                            <option value="8">Foam</option>
+                                        
+                                            <option value="9">Packing Materials</option>
+                                        
+                                            <option value="10">Rexin</option>
+                                        
+                                            <option value="11">Fabric</option>
+                                        
+                                            <option value="12">Board</option>
+                                        
+                                            <option value="13">Maintenance Section</option>
+                                        
+                                            <option value="14">Glass</option>
+                                        
+                                            <option value="15">Medicine</option>
+                                        
+                                            <option value="16">Art</option>
+                                        
+                                            <option value="17">Mechanical Item</option>
+                                        
+                                            <option value="18">Electrical Item</option>
+                                        
+                                            <option value="19">Metal</option>
+                                        
+                                            <option value="20">Chair Components</option>
+                                        
+                                            <option value="21">General Item</option>
+                                        
+                                            <option value="22">Machinery</option>
+                                        
+                                            <option value="23">Chemical</option>
+                                        
+                                            <option value="24">Fuel &amp; Lubricants</option>
+                                        
+                                            <option value="25">Miscellaneous</option>
+                                        
+                                            <option value="26">Finishing Material</option>
+                                        
+                                            <option value="27">Paint</option>
+                                        
+                                            <option value="28">Veneer</option>
+                                        
+                                            <option value="29">PVC</option>
+                                        
+                                            <option value="30">Outsourced Item</option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="material">Item <b style="color:red">*</b></label>
+                                <div class="col-sm-9">
+                                    <select name="material" class="form-control selectpicker" data-live-search="true" required id="material">
+                                       
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label style="font-size: 13px;" class="col-sm-3" for= "demanded_quantity">Requested QTY<b style="color:red">*</b></label>
+                                <div class="col-sm-9">
+                                    <input name="demanded_quantity" type="number" value="1" min="1" max="5000000" required class="form-control" id="demanded_quantity" placeholder="QTY">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom: 10px;">
+                            <div class="form-group row">
+                                <label class="col-sm-3" for= "description">Note</label>
+                                <div class="col-sm-9">
+                                    <textarea name="description" class="form-control" rows="1" id="description" placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group row text-right">
+                                <div class="col-sm-12">
+                                    <button type="button" id="btnAdd" class="btn btn-success">Add</button>
+                                    <a href="/supplyChain/supplyReqeuisitionsList" class="btn btn-primary">PR List</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form method="POST"> <input type="hidden" name="csrfmiddlewaretoken" value="JrHqnWSN2wCfDpYxQ2ioMRvcWGk1jdotpsZivsRsBOeJN1s7qNFgwYaPClBQYyli">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <div class="col-md-12" style="padding-left: 0;">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped" hidden id="tblMaterialList">
+                                        <thead>
+                                            <tr>
+                                                <th>Item Name</th>
+                                                <th>ERP Code(New)</th>
+                                                <th>ERP Code(Old)</th>
+                                                <th>Category</th>
+                                                <th>Type</th>
+                                                <th>UoM</th>
+                                                <th class="text-center">Stock</th>
+                                                <th class="text-center">QTY</th>
+                                                <th>Description</th>
+                                                <th width="5%" class="text-right">Actions</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                               </div>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div id="master_data" class="row" hidden>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+                                    <input type="text" name="hdn_category" id="hdn_category" hidden>
+                                    <label class="col-sm-4" for="req_title">Requisition Title <b style="color:red">*</b></label>
+                                    <div class="col-sm-8">
+                                        <input name="req_title" type="text" required class="form-control" id="req_title" placeholder="Requisition Title">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+                                    <label class="col-sm-4" for="requisition_note">Requisition Note</label>
+                                    <div class="col-sm-8">
+                                        <textarea name="requisition_note" type="text" rows="1" class="form-control" id="requisition_note" placeholder="Requisition Note"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+                                    <label class="col-sm-4" for="expected_date">Expected Date <b style="color:red">*</b></label>
+                                    <div class="col-sm-8">
+                                        <input name="expected_date" type="date" required class="form-control" id="expected_date" placeholder="Expected Date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row">
+                                    <label class="col-sm-4" for="req_type">PR Type <b style="color: red;">*</b></label>
+                                    <div class="col-sm-8">
+                                        <select name="req_type" class="form-control" data-live-search="true" required id="req_type">
+                                            <option value="Normal">Normal</option>
+                                            <option value="Urgent">Urgent</option>
+                                            <option value="Most Urgent">Most Urgent</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <button type="submit" style="display:none" id="btnSubmit" class="btn btn-success pull-right">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                     
+                    </form>    
+            </div>            
+        </div>
+
+    </div>
+
+    
+
+
+    <div class="footer-copyright-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright © 2019 ISHO Limited All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Register area End-->
+    <!-- jquery
+		============================================ -->
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="assets/js/jquery-price-slider.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="assets/js/jquery.scrollUp.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <!-- <script src="assets/js/meanmenu/jquery.meanmenu.js"></script> -->
+    <!-- counterup JS
+		============================================ -->
+    <script src="assets/js/counterup/jquery.counterup.min.js"></script>
+    <script src="assets/js/counterup/waypoints.min.js"></script>
+    <script src="assets/js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="assets/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="assets/js/sparkline/sparkline-active.js"></script>
+    <!-- flot JS
+		============================================ -->
+    <script src="assets/js/flot/jquery.flot.js"></script>
+    <script src="assets/js/flot/jquery.flot.resize.js"></script>
+    <script src="assets/js/flot/flot-active.js"></script>
+    <script src="assets/js/flot/jquery.flot.pie.js"></script>
+    <script src="assets/js/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="assets/js/flot/jquery.flot.orderBars.js"></script>
+    <script src="assets/js/flot/curvedLines.js"></script>
+    <!-- knob JS
+		============================================ -->
+    <script src="assets/js/knob/jquery.knob.js"></script>
+    <script src="assets/js/knob/jquery.appear.js"></script>
+    <script src="assets/js/knob/knob-active.js"></script>
+    <!-- Input Mask JS
+		============================================ -->
+    <script src="assets/js/jasny-bootstrap.min.js"></script>
+    <!-- icheck JS
+		============================================ -->
+    <script src="assets/js/icheck/icheck.min.js"></script>
+    <script src="assets/js/icheck/icheck-active.js"></script>
+    <!-- rangle-slider JS
+		============================================ -->
+    <script src="assets/js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="assets/js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+    <script src="assets/js/rangle-slider/rangle-active.js"></script>
+    <!-- datapicker JS
+		============================================ -->
+    <script src="assets/js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="assets/js/datapicker/datepicker-active.js"></script>
+    <!-- bootstrap select JS
+		============================================ -->
+    <script src="assets/js/bootstrap-select/bootstrap-select.js"></script>
+    <!--  color-picker JS
+		============================================ -->
+    <script src="assets/js/color-picker/farbtastic.min.js"></script>
+    <script src="assets/js/color-picker/color-picker.js"></script>
+    <!--  notification JS
+		============================================ -->
+    <script src="assets/js/notification/bootstrap-growl.min.js"></script>
+    <script src="assets/js/notification/notification-active.js"></script>
+    <!--  summernote JS
+		============================================ -->
+    <script src="assets/js/summernote/summernote-updated.min.js"></script>
+    <script src="assets/js/summernote/summernote-active.js"></script>
+    <!-- dropzone JS
+		============================================ -->
+    <!--  Chat JS
+		============================================ -->
+    <script src="assets/js/chat/jquery.chat.js"></script>
+    
+    <!--  wave JS
+		============================================ -->
+    <script src="assets/js/wave/waves.min.js"></script>
+    <script src="assets/js/wave/wave-active.js"></script>
+    <!-- icheck JS
+		============================================ -->
+    <script src="assets/js/icheck/icheck.min.js"></script>
+    <script src="assets/js/icheck/icheck-active.js"></script>
+    <!--  todo JS
+		============================================ -->
+    <script src="assets/js/todo/jquery.todo.js"></script>
+    <!-- Login JS
+		============================================ -->
+    <script src="assets/js/login/login-action.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="assets/js/plugins.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="assets/js/main.js"></script>
+    <!-- Data Table JS
+		============================================ -->
+    <script src="assets/js/data-table/jquery.dataTables.min.js"></script>
+    <script src="assets/js/data-table/data-table-act.js"></script>
+	<!-- tawk chat JS
+		============================================ -->
+    
+
+    <script src="assets/js/dialog/sweetalert2.min.js"></script>
+    <script src="assets/js/dialog/dialog-active.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/customJs/sales_order.js"></script>
+    <script src="assets/js/customJs/order_pos_sales.js"></script>
+    <script src="assets/js/customJs/inventory.js"></script>
+    <script src="assets/js/customJs/production.js"></script>
+    <script src="assets/js/customJs/dashboard.js"></script>
+    <script src="assets/js/customJs/warhouse.js"></script>
+    <script src="assets/js/customJs/fg_stock.js"></script>
+    <script src="assets/js/customJs/customer_list.js"></script>
+    
+
+<!-- DatePicker JS
+        ============================================ -->
+    <script src="assets/js/datepicker.min.js"></script>
+
+    <!-- jQuery UI
+        ============================================ -->
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/notify.js"></script>
+
+    <script type="text/javascript" src="assets/download/multi-select/js/jquery.multi-select.js"></script>
+    <script src="assets/js/jquery.scannerdetection.js"></script>
+<script>
+(function ($) {
+	"use strict";
+
+	/*
+	 * Notifications
+	 */
+	function notify(from, align, icon, type, animIn, animOut, message) {
+		$.growl({
+			icon: icon,
+			title: message,
+			message: '',
+			url: ''
+		}, {
+			element: 'body',
+			type: type,
+			allow_dismiss: true,
+			placement: {
+				from: from,
+				align: align
+			},
+			offset: {
+				x: 20,
+				y: 85
+			},
+			spacing: 10,
+			z_index: 1031,
+			delay: 2500,
+			timer: 1000,
+			url_target: '_blank',
+			mouse_over: false,
+			animate: {
+				enter: animIn,
+				exit: animOut
+			},
+			icon_type: 'class',
+			template: '<div data-growl="container" class="alert" role="alert">' +
+				'<button type="button" class="close" data-growl="dismiss">' +
+				'<span aria-hidden="true">&times;</span>' +
+				'<span class="sr-only">Close</span>' +
+				'</button>' +
+				'<span data-growl="icon"></span>' +
+				'<span data-growl="title"></span>' +
+				'<span data-growl="message"></span>' +
+				'<a href="#" data-growl="url"></a>' +
+				'</div>'
+		});
+	};
+
+
+      var nFrom = "top";
+      var nAlign = "right";
+      var nIcons = "";
+      var nAnimIn = "fadeInDown";
+      var nAnimOut = "fadeOutDown";
+      
+
+})(jQuery);
+
+</script>
+
+
+</html>
+
+
+
+<script>
+ 
+    $("#btnAdd").click(function (e) {
+        $('#hdn_category').val($('#category').val())
+        $('#category').attr('disabled', true)
+        if($("#tblMaterialList #"+$('#material').val()).length == 0){
+            if($("#material").val() != 0 && $('#demanded_quantity').val() > 0 ){
+                $.ajax({
+                    url: '/supplyChain/RMDetailsBindByMaterial',
+                    data: {
+                        'material_id': $('#material').val(),
+                    },
+                    success: function (data) {
+                        $("#btnSubmit").show();
+                        $("#tblMaterialList").show();
+                        $('#tblMaterialList').append(
+                                `<tr id='`+data["rmMaterial"][0].id +`'>
+                                    <td><input name='material_name' value='`+data["rmMaterial"][0].material_name +`' hidden> `+data["rmMaterial"][0].material_name +`</td>
+                                    <td><input name='material_id' value='`+data["rmMaterial"][0].id +`' hidden> `+data["rmMaterial"][0].internal_code +`</td>
+                                    <td>`+data["rmMaterial"][0].old_code +`</td>
+                                    <td>`+data["rmMaterial"][0].category_id__category_name +`</td>
+                                    <td>`+data["rmMaterial"][0].material_type_id__type_name +`</td>
+                                    <td>`+data["rmMaterial"][0].uom_id__unit_name +`</td>
+                                    <td class="text-center">`+data.available_stock +`</td>
+                                    <td class="text-center"><input hidden type='text' name='demanded_quantity' value='`+$('#demanded_quantity').val() +` '>`+$('#demanded_quantity').val() +`</td>
+                                    <td><input hidden type='text' name='description' value='`+$('#description').val() +` '>`+$('#description').val() +`</td>
+                                    <td  class="text-right"><input type='button' onclick="close_tr(`+data["rmMaterial"][0].id +`)" id='`+data["rmMaterial"][0].id +`' class="btn btn-danger removebtn" value="X"></td>
+                                </tr>
+                            `);
+
+                        $("#master_data").removeAttr('hidden');
+                        $("#material").val('0');
+                        $("#demanded_quantity").val('1');
+                        $("#description").val('');
+                        $("#material").focus();
+                        $("#material").selectpicker("refresh");
+                        
+                    }
+                }); 
+            }
+            else alert("Please select item and place demand quantity!");  
+        }      
+        else alert("This item hase already added in cart!");    
+    });
+ 
+    $("#category").change(function (e) {
+        $('#material').children().remove().end()
+        $.ajax({
+            url: '/supplyChain/categoryWiseMaterialBind',
+            data: {
+                'category': $('#category').val(),
+            },
+            success: function (data) {
+                for(var i =0;  i<data.length; i++){
+                    $('#material').append(
+                        `
+                        <option value=`+data[i].id+`>`+data[i].material_name+`</option>
+                    `);
+                }
+                $("#material").selectpicker("refresh");
+            }
+        });   
+    });
+
+        function close_tr(id){
+            $("#"+id).remove();
+        }
+</script>
